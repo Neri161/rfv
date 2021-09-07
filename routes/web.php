@@ -18,4 +18,6 @@ Route::get('/', function () {
     return redirect()->route('bienvenida');
 });
 
-Route::get('/Bienvenida',[UsuarioController::class,'bienvenida'])->name('bienvenida');
+Route::get('/bienvenida',[UsuarioController::class,'bienvenida'])->name('bienvenida');
+Route::get('/login',[UsuarioController::class,'login'])->name('login');
+Route::get('/registro',[UsuarioController::class,'registro'])->name('registro');
