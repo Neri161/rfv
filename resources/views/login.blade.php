@@ -29,6 +29,14 @@
                         </div>
                     </div>
                     <form action="" method="post" name="login">
+                        {{csrf_field()}}
+                        @if(isset($estatus))
+                            @if($estatus == "success")
+                                <label class="bg-success text-white col-md-12 text-center">{{$mensaje}}</label>
+                            @elseif($estatus == "error")
+                                <label class="bg-danger text-white col-md-12 text-center">{{$mensaje}}</label>
+                            @endif
+                        @endif
                         <div class="form-group">
                             <label for="exampleInputEmail1">Email address</label>
                             <input type="email" name="email" class="form-control" id="email"
@@ -58,15 +66,19 @@
                                 </a>
                             </p>
                         </div>
+                        @if(isset($_GET["r"]))
+                            <input type="hidden" name="url" value="{{$_GET["r"]}}">
+                        @endif
                         <div class="form-group">
-                            <p class="text-center">Don't have account? <a href="{{route('registro')}}" id="signup">Sign up here</a></p>
+                            <p class="text-center">Don't have account? <a href="{{route('registro')}}" id="signup">Sign
+                                    up here</a></p>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>
