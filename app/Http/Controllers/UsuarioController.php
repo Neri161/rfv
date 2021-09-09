@@ -23,6 +23,11 @@ class UsuarioController extends Controller
     {
         return view('registro');
     }
+    public function recuperarContrasenia()
+    {
+        return view('recuperarContrasenia');
+    }
+
     public function registroForm(Request $datos){
         if(!$datos->correo || !$datos->pass1 || !$datos->pass2)
             return view("registro",["estatus"=> "error", "mensaje"=> "¡Falta información!"]);
