@@ -47,6 +47,12 @@ h1, h2, h3 {
     padding-bottom: 10px;
 }
 
+body{
+    background: linear-gradient(to bottom,white,#17a2b8);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 .span-or {
     display: block;
     position: absolute;
@@ -80,3 +86,4 @@ form .error {
 #second {
     display: none;
 }
+

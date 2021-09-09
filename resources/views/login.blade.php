@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    
+
 </head>
 <body>
 <div class="container box box_login shadow">
@@ -35,31 +35,37 @@
                             <label for="correo">Correo:</label>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                                <input type="text" name="correo" id="correo" class="form-control" placeholder="correo" aria-label="correo" aria-describedby="addon-wrapping">
-                              </div>
+                                <input type="text" name="correo" id="correo" class="form-control" placeholder="correo"
+                                       aria-label="correo" aria-describedby="addon-wrapping">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="password">Contraseña:</label>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock"></i></span>
-                                <input type="text" name="password" id="password" class="form-control" placeholder="password" aria-label="password" aria-describedby="password">
-                              </div>
+                                <input type="text" name="password" id="password" class="form-control"
+                                       placeholder="password" aria-label="password" aria-describedby="password">
+                            </div>
                         </div>
                         <div class="form-group">
                             <a href="" class="recuperar">
-                             ¿Olvidaste tu contraseña?
+                                ¿Olvidaste tu contraseña?</a>
                         </div>
                         <div class="col-md-12 text-center ">
-                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesion</button>
+                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesion
+                            </button>
                         </div>
-                        
+
                         <div class="col-md-12 mb-3">
                             <p class="text-center">
-                                
+
                             </p>
                         </div>
                         <div class="form-group">
-                            <p class="text-center">¿No tienes cuenta? <a href="{{route('registro')}}" id="signup">Registrate</a></p>
+                            <div class="form-group">
+                                <p class="text-center">¿No tienes cuenta? <a href="{{route('registro')}}" id="signup">Registrate</a>
+                                </p>
+                            </div>
                         </div>
                     </form>
 

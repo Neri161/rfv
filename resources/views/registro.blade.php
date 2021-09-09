@@ -8,8 +8,12 @@
     <title>Registro</title>
     <link rel="stylesheet" href="css/login.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="/plugins/sweetAlert2/sweetalert2.min.css">
-    <link rel="stylesheet" href="/plugins/animate.css/animate.css">
+    <script src="https://kit.fontawesome.com/7c0f4c4dd5.js" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    <script src="js/login.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -41,29 +45,44 @@
                                    aria-describedby="emailHelp" placeholder="Ingresar Nombre" required>
                         </div>
                         <div class="form-group">
-                            <label for="paterno">Apellido Paterno</label>
-                            <input type="text" name="paterno" class="form-control" id="paterno"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Apellido Paterno" required>
+                            <label for="paterno">Apellido Paterno:</label>
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                                <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Ingresa Correo"
+                                       aria-label="correo" aria-describedby="addon-wrapping">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="materno">Apellido Materno</label>
-                            <input type="text" name="materno" class="form-control" id="materno"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Apellido Materno" required>
+                            <label for="paterno">Apellido Paterno:</label>
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                                <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Ingresa Correo"
+                                       aria-label="correo" aria-describedby="addon-wrapping">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="correo">Correo</label>
-                            <input type="email" name="correo" class="form-control" id="correo"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Correo" required>
+                            <label for="correo">Correo:</label>
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
+                                <input type="text" name="correo" id="correo" class="form-control" placeholder="Ingresa Correo"
+                                       aria-label="correo" aria-describedby="addon-wrapping">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="pass1">Contraseña</label>
-                            <input type="password" name="pass1" id="pass1" class="form-control"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Contraseña" required>
+                            <label for="pass1">Contraseña:</label>
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock"></i></span>
+                                <input type="text" name="pass1" id="pass1" class="form-control"
+                                       placeholder="Ingresa Contraseña" aria-label="password" aria-describedby="password">
+                            </div>
                         </div>
                         <div class="form-group">
-                            <label for="pass2">Confirmar Contraseña</label>
-                            <input type="password" name="pass2" id="pass2" class="form-control"
-                                   aria-describedby="emailHelp" placeholder="Confirmar Contraseña" required>
+                            <label for="pass2">Contraseña:</label>
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock"></i></span>
+                                <input type="text" name="pass2" id="pass2" class="form-control"
+                                       placeholder="Confirma Correo" aria-label="password" aria-describedby="password">
+                            </div>
                         </div>
                         <div class="col-md-12 text-center mb-3">
                             <button type="submit" id="btnRegistrar" class="btn btn-block mybtn btn-primary tx-tfm">Registrate
@@ -87,8 +106,6 @@
 <!------ Include the above in your HEAD tag ---------->
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script src="js/login.js"></script>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="js/verificar.js"></script>
 
 </body>
