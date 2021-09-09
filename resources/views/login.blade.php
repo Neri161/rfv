@@ -20,7 +20,7 @@
     
 </head>
 <body>
-<div class="container box box_login shadow0">
+<div class="container box box_login shadow">
     <div class="row">
         <div class="col-md-5 mx-auto">
             <div id="first">
