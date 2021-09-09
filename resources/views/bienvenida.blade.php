@@ -197,8 +197,8 @@
         <h3>Refividrio</h3>
         <div class="social-links">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=100063597669793" class="facebook"><i class="bx bxl-facebook"></i></a>
-            <a href="https://www.instagram.com/refividrio/" class="instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100063597669793"  target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/refividrio/" target="_blank"  class="instagram"><i class="bx bxl-instagram"></i></a>
          
         </div>
         <div class="copyright">
