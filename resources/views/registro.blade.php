@@ -38,32 +38,32 @@
                         <div class="form-group">
                             <label for="nombre">Nombre</label>
                             <input type="text" name="nombre" class="form-control" id="nombre"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Nombre">
+                                   aria-describedby="emailHelp" placeholder="Ingresar Nombre" required>
                         </div>
                         <div class="form-group">
                             <label for="paterno">Apellido Paterno</label>
                             <input type="text" name="paterno" class="form-control" id="paterno"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Apellido Paterno">
+                                   aria-describedby="emailHelp" placeholder="Ingresar Apellido Paterno" required>
                         </div>
                         <div class="form-group">
                             <label for="materno">Apellido Materno</label>
                             <input type="text" name="materno" class="form-control" id="materno"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Apellido Materno">
+                                   aria-describedby="emailHelp" placeholder="Ingresar Apellido Materno" required>
                         </div>
                         <div class="form-group">
                             <label for="correo">Correo</label>
                             <input type="email" name="correo" class="form-control" id="correo"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Correo">
+                                   aria-describedby="emailHelp" placeholder="Ingresar Correo" required>
                         </div>
                         <div class="form-group">
                             <label for="pass1">Contraseña</label>
                             <input type="password" name="pass1" id="pass1" class="form-control"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Contraseña">
+                                   aria-describedby="emailHelp" placeholder="Ingresar Contraseña" required>
                         </div>
                         <div class="form-group">
                             <label for="pass2">Confirmar Contraseña</label>
                             <input type="password" name="pass2" id="pass2" class="form-control"
-                                   aria-describedby="emailHelp" placeholder="Confirmar Contraseña">
+                                   aria-describedby="emailHelp" placeholder="Confirmar Contraseña" required>
                         </div>
                         <div class="col-md-12 text-center mb-3">
                             <button type="submit" id="btnRegistrar" class="btn btn-block mybtn btn-primary tx-tfm">Registrate
