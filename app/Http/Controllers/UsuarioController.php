@@ -44,7 +44,7 @@ class UsuarioController extends Controller
         return view("login",["estatus"=> "success", "mensaje"=> "¡Cuenta Creada!"]);
     }
     public function verificarCredenciales(Request $datos){
-        if(!$datos->correo || !$datos->pass)
+        if(!$datos->correo || !$datos->password)
             return view("login",["estatus"=> "error", "mensaje"=> "¡Completa los campos!"]);
 
         $usuario = Usuario::where('correo',$datos->correo)->first();
@@ -52,7 +52,7 @@ class UsuarioController extends Controller
         if(!$usuario)
             return view("login", ["estatus" => "error", "mensaje" => "¡El correo no esta registrado!"]);
 
-        if(!password_verify($datos->pass,$usuario->password))
+        if(!password_verify($datos->password,$usuario->password))
             return view("login", ["estatus" => "error", "mensaje" => "¡La contraseña que ingresaste es incorrecta!"]);
 
         Session::put('usuario',$usuario);
@@ -61,7 +61,8 @@ class UsuarioController extends Controller
             $url = decrypt($datos->url);
             return redirect($url);
         }else{
-            return redirect()->route('usuario.inicio');
+           // return redirect()->route('usuario.inicio');
+            return 'Ya rifaste';
         }
     }
     public function inicio(){

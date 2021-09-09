@@ -40,23 +40,26 @@
                             @endif
                         @endif
                         <div class="form-group">
-                            <label for="nombre">Nombre</label>
-                            <input type="text" name="nombre" class="form-control" id="nombre"
-                                   aria-describedby="emailHelp" placeholder="Ingresar Nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="paterno">Apellido Paterno:</label>
+                            <label for="nombre">Nombre:</label>
                             <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                                <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Ingresa Correo"
-                                       aria-label="correo" aria-describedby="addon-wrapping">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Ingresa Nombre"
+                                       aria-label="nombre" aria-describedby="addon-wrapping">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="paterno">Apellido Paterno:</label>
                             <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                                <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Ingresa Correo"
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                <input type="text" name="paterno" id="paterno" class="form-control" placeholder="Ingresa Apellido Paterno"
+                                       aria-label="correo" aria-describedby="addon-wrapping">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="paterno">Apellido Materno:</label>
+                            <div class="input-group flex-nowrap">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                                <input type="text" name="materno" id="materno" class="form-control" placeholder="Ingresa Apellido Materno"
                                        aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
@@ -64,7 +67,7 @@
                             <label for="correo">Correo:</label>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                                <input type="text" name="correo" id="correo" class="form-control" placeholder="Ingresa Correo"
+                                <input type="email" name="correo" id="correo" class="form-control" placeholder="Ingresa Correo"
                                        aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
@@ -72,16 +75,16 @@
                             <label for="pass1">Contraseña:</label>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock"></i></span>
-                                <input type="text" name="pass1" id="pass1" class="form-control"
+                                <input type="password" name="pass1" id="pass1" class="form-control"
                                        placeholder="Ingresa Contraseña" aria-label="password" aria-describedby="password">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="pass2">Contraseña:</label>
-                            <div class="input-group flex-nowrap">
+                            <label for="pass2">Confirma Contraseña:</label>
+                            <div class="input-group flex-nowrap" >
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock"></i></span>
-                                <input type="text" name="pass2" id="pass2" class="form-control"
-                                       placeholder="Confirma Correo" aria-label="password" aria-describedby="password">
+                                <input type="password" name="pass2" id="pass2" class="form-control"
+                                       placeholder="Confirma Contraseña" aria-label="password" aria-describedby="password">
                             </div>
                         </div>
                         <div class="col-md-12 text-center mb-3">
