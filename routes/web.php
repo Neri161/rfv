@@ -23,4 +23,12 @@ Route::get('/login',[UsuarioController::class,'login'])->name('login');
 Route::get('/registro',[UsuarioController::class,'registro'])->name('registro');
 Route::post('/registroForm',[UsuarioController::class,'registroForm'])->name('registro.form');
 Route::post('/verificarCredenciales',[UsuarioController::class,'verificarCredenciales'])->name('login.form');
-Route::get('/recuperarContrasenia',[UsuarioController::class,'recuperarContrasenia'])->name('recuperarContrasenia');
+Route::get('/cerrarSesion',[UsuarioController::class,'cerrarSesion'])->name('cerrar.sesion');
+Route::get('/recuperar',[UsuarioController::class,'recuperar'])->name('correo');
+Route::post('/recuperarContrasenia',[UsuarioController::class,'recuperarContrasenia'])->name('recuperar.contrasenia');
+Route::get('/codigo',[UsuarioController::class,'codigo'])->name('recuperar');
+
+Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function (){
+    Route::get('/inicio',[UsuarioController::class,'inicio'])->name('usuario.inicio');
+
+});

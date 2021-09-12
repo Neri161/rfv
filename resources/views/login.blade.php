@@ -55,8 +55,8 @@
                                        placeholder="password" aria-label="password" aria-describedby="password">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <a href="" class="recuperar">
+                        <div class="form-group text-right">
+                            <a href="{{route('correo')}}" class="recuperar">
                                 ¿Olvidaste tu contraseña?</a>
                         </div>
 

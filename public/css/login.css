@@ -1,8 +1,10 @@
 body {
     padding-top: 4.2rem;
     padding-bottom: 4.2rem;
-    background: rgba(0, 0, 0, 0.76);
-   
+    background: linear-gradient(to bottom,#F0F98A,#17a2b8);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 a {
@@ -45,13 +47,6 @@ h1, h2, h3 {
     margin-bottom: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-}
-
-body{
-    background: linear-gradient(to bottom,white,#17a2b8);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 }
 .span-or {
     display: block;
