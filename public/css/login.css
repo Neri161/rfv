@@ -6,7 +6,13 @@ body {
     background-size: cover;
     background-attachment: fixed;
 }
-
+@font-face {
+    font-family: 'loginrfv';
+    src: url(https://fonts.gstatic.com/s/satisfy/v11/rP2Hp2yn6lkG50LoCZOIHQ.woff2) format('woff2');
+}
+.titulo{
+    font-family: "loginrfv";
+}
 a {
     text-decoration: none !important;
 }

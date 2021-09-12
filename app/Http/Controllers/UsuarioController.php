@@ -97,7 +97,7 @@ class UsuarioController extends Controller
 
         Mail::to($usuario->correo)->send(new RecuperarMailable($usuario));
 
-        return var_dump($usuario);
+        return view('codigo');
     }
 
     public function inicio()
@@ -112,7 +112,25 @@ class UsuarioController extends Controller
 
         return redirect()->route('bienvenida');
     }
-    public function codigo(){
+    public function codigo(Request $datos){
+        if(!$datos->codigo)
+            return view("codigo", ["estatus" => "error", "mensaje" => "¡El ingresa el codigo!"]);
 
+        $usuario = Usuario::where('token_recovery',$datos->codigo)->first();
+
+        if(!$usuario)
+            return view("codigo", ["estatus" => "error", "mensaje" => "¡Error en el codigo"]);
+
+        $usuario->token_recovery=null;
+        $usuario->save();
+
+        return view('contrasenia');
+    }
+    public function cambio(Request $datos){
+        if (!$datos->pass1 || !$datos->pass2)
+            return view("contrasenia", ["estatus" => "error", "mensaje" => "¡Completa los campos!"]);
+
+        if ($datos->pass1 != $datos->pass2)
+            return view("contrasenia", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
     }
 }

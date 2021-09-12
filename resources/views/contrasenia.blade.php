@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://kit.fontawesome.com/7c0f4c4dd5.js" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
@@ -16,7 +17,6 @@
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
 </head>
 <body>
 <div class="container box box_login shadow">
@@ -26,10 +26,10 @@
                 <div class="myform form ">
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
-                            <h1 class="titulo">Inicio De Sessión</h1>
+                            <h1 class="titulo">Recuperar Contraseña</h1>
                         </div>
                     </div>
-                    <form action="{{route('login.form')}}" method="post">
+                    <form action="{{route('cambio')}}" method="post">
                         {{csrf_field()}}
                         @if(isset($estatus))
                             @if($estatus == "success")
@@ -39,43 +39,24 @@
                             @endif
                         @endif
                         <div class="form-group">
-                            <label for="correo">Correo:</label>
+                            <label for="correo">Contraseña Nueva:</label>
                             <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                                <input type="email" name="correo" id="correo" class="form-control" placeholder="correo"
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock-open"></i></span>
+                                <input type="password" name="pass1" id="pass1" class="form-control" placeholder="Ingresa Nueva Contraseña"
                                        aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="password">Contraseña:</label>
+                            <label for="correo">Confirmar Contraseña:</label>
                             <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock"></i></span>
-                                <input type="password" name="password" id="password" class="form-control"
-                                       placeholder="password" aria-label="password" aria-describedby="password">
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock-open"></i></span>
+                                <input type="password" name="pass2" id="pass2" class="form-control" placeholder="Confiramar Contraseña"
+                                       aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
-                        <div class="form-group text-right">
-                            <a href="{{route('correo')}}" class="recuperar">
-                                ¿Olvidaste tu contraseña?</a>
-                        </div>
-
                         <div class="col-md-12 text-center ">
-                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesion
+                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Cambiar
                             </button>
-                        </div>
-                        @if(isset($_GET["r"]))
-                            <input type="hidden" name="url" value="{{$_GET["r"]}}">
-                        @endif
-                        <div class="col-md-12 mb-3">
-                            <p class="text-center">
-
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-group">
-                                <p class="text-center">¿No tienes cuenta? <a href="{{route('registro')}}" id="signup">Registrate</a>
-                                </p>
-                            </div>
                         </div>
                     </form>
 

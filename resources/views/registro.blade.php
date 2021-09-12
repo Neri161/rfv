@@ -27,7 +27,7 @@
                 <div class="myform form ">
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
-                            <h1>Registro</h1>
+                            <h1 class="titulo">Registro</h1>
                         </div>
                     </div>
                     <form action="{{route('registro.form')}}" method="post" name="registration">
