@@ -76,7 +76,8 @@ class UsuarioController extends Controller
         }
     }
 
-    public function recuperarContrasenia(Request $datos){
+    public function recuperarContrasenia(Request $datos)
+    {
 
         if (!$datos->correo)
             return view("recuperar", ["estatus" => "error", "mensaje" => "¡Completa los campos!"]);
@@ -88,11 +89,11 @@ class UsuarioController extends Controller
 
         $max_num = 3;
         $codigo = "";
-        for ($x=0;$x<$max_num;$x++) {
-            $num_aleatorio = rand(1,100);
-            $codigo=$codigo.strval($num_aleatorio);
+        for ($x = 0; $x < $max_num; $x++) {
+            $num_aleatorio = rand(1, 100);
+            $codigo = $codigo . strval($num_aleatorio);
         }
-        $usuario->token_recovery=$codigo;
+        $usuario->token_recovery = $codigo;
         $usuario->save();
 
         Mail::to($usuario->correo)->send(new RecuperarMailable($usuario));
@@ -102,7 +103,7 @@ class UsuarioController extends Controller
 
     public function inicio()
     {
-        return view('inicio');
+        return view('iniciouser');
     }
 
     public function cerrarSesion()
@@ -112,25 +113,33 @@ class UsuarioController extends Controller
 
         return redirect()->route('bienvenida');
     }
-    public function codigo(Request $datos){
-        if(!$datos->codigo)
+
+    public function codigo(Request $datos)
+    {
+        if (!$datos->codigo)
             return view("codigo", ["estatus" => "error", "mensaje" => "¡El ingresa el codigo!"]);
 
-        $usuario = Usuario::where('token_recovery',$datos->codigo)->first();
+        $usuario = Usuario::where('token_recovery', $datos->codigo)->first();
 
-        if(!$usuario)
+        if (!$usuario)
             return view("codigo", ["estatus" => "error", "mensaje" => "¡Error en el codigo"]);
 
-        $usuario->token_recovery=null;
-        $usuario->save();
-
-        return view('contrasenia');
+        return view("contrasenia", ["codigo" => $datos->codigo]);
     }
-    public function cambio(Request $datos){
+
+    public function cambio(Request $datos)
+    {
         if (!$datos->pass1 || !$datos->pass2)
             return view("contrasenia", ["estatus" => "error", "mensaje" => "¡Completa los campos!"]);
 
         if ($datos->pass1 != $datos->pass2)
             return view("contrasenia", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
+
+        $usuario = Usuario::where('token_recovery', $datos->codigo)->first();
+        $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
+        $usuario->token_recovery = null;
+        $usuario->save();
+
+        return redirect()->route('login');
     }
 }

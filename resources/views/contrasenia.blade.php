@@ -41,19 +41,24 @@
                         <div class="form-group">
                             <label for="correo">Contraseña Nueva:</label>
                             <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock-open"></i></span>
-                                <input type="password" name="pass1" id="pass1" class="form-control" placeholder="Ingresa Nueva Contraseña"
+                                <span class="input-group-text" id="addon-wrapping"><i
+                                        class="fas fa-lock-open"></i></span>
+                                <input type="password" name="pass1" id="pass1" class="form-control"
+                                       placeholder="Ingresa Nueva Contraseña"
                                        aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="correo">Confirmar Contraseña:</label>
                             <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock-open"></i></span>
-                                <input type="password" name="pass2" id="pass2" class="form-control" placeholder="Confiramar Contraseña"
+                                <span class="input-group-text" id="addon-wrapping"><i
+                                        class="fas fa-lock-open"></i></span>
+                                <input type="password" name="pass2" id="pass2" class="form-control"
+                                       placeholder="Confiramar Contraseña"
                                        aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
+                        <input type="hidden" name="codigo" value="{{$codigo}}">
                         <div class="col-md-12 text-center ">
                             <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Cambiar
                             </button>

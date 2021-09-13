@@ -27,7 +27,7 @@ Route::get('/cerrarSesion',[UsuarioController::class,'cerrarSesion'])->name('cer
 Route::get('/recuperar',[UsuarioController::class,'recuperar'])->name('correo');
 Route::post('/recuperarContrasenia',[UsuarioController::class,'recuperarContrasenia'])->name('recuperar.contrasenia');
 Route::post('/codigo',[UsuarioController::class,'codigo'])->name('contrasenia');
-Route::post('/cambio',[UsuarioController::class,'cambio'])->name('cambio');
+Route::post('/cambio/codigo',[UsuarioController::class,'cambio'])->name('cambio');
 
 Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function (){
     Route::get('/inicio',[UsuarioController::class,'inicio'])->name('usuario.inicio');
