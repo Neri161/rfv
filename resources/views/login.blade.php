@@ -66,17 +66,7 @@
                         @if(isset($_GET["r"]))
                             <input type="hidden" name="url" value="{{$_GET["r"]}}">
                         @endif
-                        <div class="col-md-12 mb-3">
-                            <p class="text-center">
 
-                            </p>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-group">
-                                <p class="text-center">¿No tienes cuenta? <a href="{{route('registro')}}" id="signup">Registrate</a>
-                                </p>
-                            </div>
-                        </div>
                     </form>
 
                 </div>

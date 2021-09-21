@@ -31,27 +31,7 @@ class UsuarioController extends Controller
         return view('recuperar');
     }
 
-    public function registroForm(Request $datos)
-    {
-        if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
-            return view("registro", ["estatus" => "error", "mensaje" => "¡Falta información!"]);
-        $usuario = Usuario::where('correo', $datos->correo)->first();
-        if ($usuario)
-            return view("registro", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
 
-        if ($datos->pass1 != $datos->pass2)
-            return view("registro", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
-
-        $usuario = new Usuario();
-        $usuario->nombre = $datos->nombre;
-        $usuario->paterno = $datos->paterno;
-        $usuario->materno = $datos->materno;
-        $usuario->correo = $datos->correo;
-        $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
-        $usuario->save();
-
-        return view("login", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!"]);
-    }
 
     public function verificarCredenciales(Request $datos)
     {
@@ -72,21 +52,21 @@ class UsuarioController extends Controller
             $url = decrypt($datos->url);
             return redirect($url);
         } else {
-            return redirect()->route('usuario.inicio');
+            if($usuario->rol == "admin")
+            return redirect()->route('admin.inicio');
         }
+    }
+    public function inicioadmin(){
+
     }
 
     public function recuperarContrasenia(Request $datos)
     {
-
         if (!$datos->correo)
             return view("recuperar", ["estatus" => "error", "mensaje" => "¡Completa los campos!"]);
-
         $usuario = Usuario::where('correo', $datos->correo)->first();
-
         if (!$usuario)
             return view("recuperar", ["estatus" => "error", "mensaje" => "¡El correo no esta registrado!"]);
-
         $max_num = 3;
         $codigo = "";
         for ($x = 0; $x < $max_num; $x++) {
@@ -95,9 +75,7 @@ class UsuarioController extends Controller
         }
         $usuario->token_recovery = $codigo;
         $usuario->save();
-
         Mail::to($usuario->correo)->send(new RecuperarMailable($usuario));
-
         return view('codigo');
     }
 
