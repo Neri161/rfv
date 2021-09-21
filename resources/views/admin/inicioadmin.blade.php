@@ -1,4 +1,4 @@
-@extends('layout.usuario')
+@extends('admin.layout.usuario')
 
 @section('titulo')
     <title>Inicio</title>
@@ -12,7 +12,11 @@
 
 @endsection
 
-@section('contenido')
+@section('contenido1')
+    <a href="">Registrar Usuario</a>
+@endsection
+
+@section('contenido2')
 
 @endsection
 

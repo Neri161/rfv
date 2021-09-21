@@ -21,6 +21,7 @@ class CreateUsuariosTable extends Migration
             $table->string('correo',100);
             $table->text('password');
             $table->text('token_recovery')->nullable();
+            $table->string('rol',30);
             $table->timestamps();
         });
     }

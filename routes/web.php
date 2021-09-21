@@ -31,5 +31,7 @@ Route::post('/cambio/codigo',[UsuarioController::class,'cambio'])->name('cambio'
 
 Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function (){
     Route::get('/inicio',[UsuarioController::class,'inicio'])->name('usuario.inicio');
-
+});
+Route::prefix('/admin')->middleware("")->group(function (){
+    Route::get('/inicio',[UsuarioController::class,'inicio'])->name('usuario.inicio');
 });

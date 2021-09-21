@@ -57,9 +57,7 @@
         <div class="col-3" id="sticky-sidebar">
             <div class="sticky-top border text-justify">
                 @yield('contenido1')
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto cupiditate dolorem eos, eum
-                fugiat id illum, maiores, maxime molestias necessitatibus nesciunt nihil provident repudiandae soluta
-                vel vero vitae voluptas!
+
             </div>
         </div>
         <div class="col order-2 border text-justify" id="main">
