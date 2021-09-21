@@ -36,7 +36,7 @@
 
 <body>
 
-<!-- ======= Header ======= -->
+<!-- ======= Encabezado ======= -->
 <header id="header" class="fixed-top  d-flex justify-content-center align-items-center header-transparent">
 
     <nav class="nav-menu d-none d-lg-block">
@@ -45,12 +45,12 @@
             <li><a href="#hero">Inicio</a></li>
             <li><a href="#resume">Acerca de Refividrio</a></li>
             <li><a href="#footer"> Contacto</a></li> 
-            <li><a href="{{route('login')}}">Iniciar sesión</a></li>
+            <li><a href="{{route('login')}}">Iniciar sesión</a></li><!--Redirige al login-->
 
         </ul>
     </nav><!-- .nav-menu -->
 
-</header><!-- End Header -->
+</header><!-- Fin del encabezado -->
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
@@ -109,10 +109,7 @@
                     </em>
                    
                     </p>
-                  </div>
-
-                   
-        
+                  </div>                  
         
                 </div>
                 <div class="col-lg-6">
@@ -144,18 +141,12 @@
                                 , cumplir los reglamentos internos con pasión y compromiso de una manera eficiente.
                             </p>
                         </em>
-                    </div>
-        
-        
-
-                    
+                    </div>                  
                 </div>
             </div>
 
         </div>
     </section><!-- End My Resume Section -->
-
-    
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
@@ -185,18 +176,14 @@
 
         </div>
     </section><!-- End Testimonials Section -->
-
-    
-
    
 </main><!-- End #main -->
 
-<!-- ======= Footer ======= -->
+<!-- ======= Pie de pagina ======= -->
 <footer id="footer">
     <div class="container">
         <h3>Refividrio</h3>
-        <div class="social-links">
-            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+        <div class="social-links">           
             <a href="https://www.facebook.com/profile.php?id=100063597669793"  target="_blank" class="facebook"><i class="bx bxl-facebook"></i></a>
             <a href="https://www.instagram.com/refividrio/" target="_blank"  class="instagram"><i class="bx bxl-instagram"></i></a>
          
@@ -212,9 +199,9 @@
             
         </div>
     </div>
-</footer><!-- End Footer -->
+</footer><!-- Fin pie de pagina -->
 
-<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+<a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a> <!--flecha que dirige hacia arriba-->
 
 <!-- Vendor JS Files -->
 <script src="vendor/jquery/jquery.min.js"></script>
