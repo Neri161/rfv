@@ -17,7 +17,8 @@
 @endsection
 
 @section('contenido2')
-    <h1 class="text-center"> Bienvenido {{session('usuario')->nombre}} </h1>
+    <!--  Formulario registrar usuario -->
+
 @endsection
 
 @section('js')

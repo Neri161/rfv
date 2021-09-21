@@ -56,19 +56,12 @@
     <div class="row py-3">
         <div class="col-3" id="sticky-sidebar">
             <div class="sticky-top border text-justify">
+                <a href="{{route('admin.registrousuario')}}">Registrar Usuario</a>
                 @yield('contenido1')
 
             </div>
         </div>
         <div class="col order-2 border text-justify" id="main">
-            <h1>Main Area</h1>
-            <br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid corporis cum delectus et excepturi
-            iusto molestiae nihil non nulla placeat, porro quisquam tempora veritatis, voluptas. Accusamus esse quae
-            repudiandae! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque aut deserunt est
-            expedita fugiat hic iusto maiores nam necessitatibus nobis, nostrum odio placeat, porro provident quaerat,
-            quam tempore tenetur! Lorem ipsum dolor sit amet, consectetur adipisicing elit. A atque ducimus enim, eos
-            est illo iste iure magnam, quas sit sunt totam! Aperiam atque dolor facilis iste officia, voluptatem? Porro.
             @yield('contenido2')
         </div>
     </div>

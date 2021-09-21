@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,7 @@ Route::post('/cambio/codigo',[UsuarioController::class,'cambio'])->name('cambio'
 Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function (){
     Route::get('/inicio',[UsuarioController::class,'inicio'])->name('usuario.inicio');
 });
-Route::prefix('/admin')->middleware("")->group(function (){
-    Route::get('/inicio',[UsuarioController::class,'inicio'])->name('usuario.inicio');
+Route::prefix('/admin')->middleware("VerificarAdmin")->group(function (){
+    Route::get('/inicio',[AdminController::class,'inicio'])->name('admin.inicio');
+    Route::get('/RegistrarUsuario',[AdminController::class,'registroUsuario'])->name('admin.registrousuario');
 });
