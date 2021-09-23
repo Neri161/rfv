@@ -98,30 +98,26 @@
                     </div>
                     <h3 class="resume-title">FILOSOFÍA</h3>
                     <div class="resume-item">
-                        <p><em>Los retos son una gran oportunidad y en GRUPO REFIVIDRIO nos esforzamos continuamente por
+                        <em>
+                            <p>Los retos son una gran oportunidad y en GRUPO REFIVIDRIO nos esforzamos continuamente por
                                 ser
                                 líderes de excelencia en el mercado, buscando el mejor equipo de trabajo dotado
                                 principalmente de ideas
                                 propositivas y valores humanos como:
                                 Integridad, efectividad, confiabilidad, compromiso, eficacia, responsabilidad,
-                                eficiencia:
-                        <p>Valores que nos guían día a día para cumplir el propósito de consolidar nuestros productos y
+                                eficiencia: 
+                              </p>
+                            <p>Valores que nos guían día a día para cumplir el propósito de consolidar nuestros productos y
                             servicios
                             de calidad con propuestas de valor, y así lograr el objetivo primordial de satisfacer las
                             diferentes
                             necesidades de cada uno de nuestros clientes.
-                        </p>
+                             </p>
 
-                    </em>
-                   
-                    </p>
-             </div>                  
-        
-
-                        </em>
-                    </p>
-                    </div>
-
+                         </em>
+                                
+                     </div>                  
+                                                          
                 </div>
                 <div class="col-lg-6">
                     <h3 class="resume-title">VALORES</h3>
