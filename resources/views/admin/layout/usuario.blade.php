@@ -59,7 +59,6 @@
             <div class="sticky-top border text-justify">
                 <a href="{{route('admin.registrousuario')}}">Registrar Usuario</a>
                 @yield('contenido1')
-
             </div>
         </div>
         <div class="col order-2 border text-justify" id="main">
