@@ -21,7 +21,15 @@
 
 
     <!--  Formulario registrar usuario -->
-    <form>
+    <form action="{{route('registro.form')}}" method="post" name="registration">
+        {{csrf_field()}}
+        @if(isset($estatus))
+            @if($estatus == "success")
+                <label class="bg-success text-white col-md-12 text-center">{{$mensaje}}</label>
+            @elseif($estatus == "error")
+                <label class="bg-danger text-white col-md-12 text-center">{{$mensaje}}</label>
+            @endif
+        @endif
         <div class="container-fluid" id="sticky-sidebar">
             <div class="panel shadow">
                 <div class="col-md-9">
@@ -37,14 +45,14 @@
                             <label for="nombre">Nombre:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Ingresa Nombre">
+                                <input type="text" name="nombre"  class="form-control" placeholder="Ingresa Nombre">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="paterno">Apellido Paterno:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Ingresa Apellido Paterno">
+                                <input type="text" name="paterno" class="form-control" placeholder="Ingresa Apellido Paterno">
                             </div>
                         </div>
                     </div>
@@ -53,15 +61,24 @@
                             <label for="materno" class="mtop16">Apellido Materno:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Ingresa Apellido Materno">
+                                <input type="text" name="materno" class="form-control" placeholder="Ingresa Apellido Materno">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="correo" class="mtop16">Correo:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">@</span>
-                                <input type="text" class="form-control" placeholder="Ingresa Correo">
+                                <input type="text" name="correo" class="form-control" placeholder="Ingresa Correo">
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">          
+                        <label for="rol" class="mtop16">Rol:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                            <input type="text" name="rol" class="form-control" placeholder="Ingresa rol">
+                        </div>
                         </div>
                     </div>
                     <div class="row">
@@ -69,14 +86,14 @@
                             <label for="password1" class="mtop16">Contraseña:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
-                                <input type="text" class="form-control" placeholder="Ingresa Contraseña">
+                                <input type="text" name="pass1" class="form-control" placeholder="Ingresa Contraseña">
                             </div>
                         </div>
                         <div class="col-md-6 ">
                             <label for="password2" class="mtop16">Confirmar Contraseña:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
-                                <input type="text" class="form-control" placeholder="Ingresa Contraseña ">
+                                <input type="text" name="pass2" class="form-control" placeholder="Ingresa Contraseña ">
                             </div>
                         </div>
                     </div>
@@ -96,6 +113,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-12 ">
+            <div class="form-group">
+                <p class="text-center">Tienes una cuenta?<a href="{{route('login')}}" id="signin"> Inicia Sesion</a></p>
             </div>
         </div>
     </form>

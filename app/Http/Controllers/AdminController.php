@@ -19,7 +19,7 @@ class AdminController extends Controller
     public function registroForm(Request $datos)
     {
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
-            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta información!"]);
+            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
         $usuario = Usuario::where('correo', $datos->correo)->first();
         if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
@@ -32,8 +32,8 @@ class AdminController extends Controller
         $usuario->paterno = $datos->paterno;
         $usuario->materno = $datos->materno;
         $usuario->correo = $datos->correo;
-        $usuario->rol = $datos->rol;
         $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
+         $usuario->rol = $datos->rol;
         $usuario->save();
 
         return view("login", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!"]);
