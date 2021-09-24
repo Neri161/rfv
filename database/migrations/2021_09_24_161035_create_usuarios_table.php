@@ -15,13 +15,18 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre',50);
-            $table->string('paterno',50);
-            $table->string('materno',50);
-            $table->string('correo',100);
+
+            $table->string('nombre', 50);
+            $table->string('paterno', 50);
+            $table->string('materno', 50);
+            $table->string('correo', 100);
             $table->text('password');
             $table->text('token_recovery')->nullable();
-            $table->string('rol',30);
+            $table->unsignedBigInteger('rol_id')->nullable();
+            $table->foreign('rol_id')->
+            references('id')->on('rols')
+                ->onDelete('set null');
+
             $table->timestamps();
         });
     }
