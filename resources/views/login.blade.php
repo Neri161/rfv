@@ -26,7 +26,7 @@
                 <div class="myform form ">
                     <div class="logo mb-3">
                         <div class="col-md-12 text-center">
-                            <h1 class="titulo">Inicio De Sessión</h1>
+                            <h1 class="titulo">Inicio De Sesión</h1>
                         </div>
                     </div>
                     <form action="{{route('login.form')}}" method="post">
@@ -60,19 +60,24 @@
                         </div>
 
                         <div class="col-md-12 text-center ">
-                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesion
-                            </button>
+                            <button type="submit" id="btnIniciar" class="btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesión</button>
                         </div>
                         @if(isset($_GET["r"]))
                             <input type="hidden" name="url" value="{{$_GET["r"]}}">
                         @endif
-
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="js/jquery.min.js"></script>
+<script src="popper/popper.min.js"></script>
+<!--    Plugin sweet Alert 2  -->
+<script src="plugins/sweetAlert2/sweetalert2.all.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script src="js/login.js"></script>
+<script src="js/verificar.js"></script>
 </body>
 </html>

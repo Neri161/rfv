@@ -76,4 +76,29 @@ $(document).ready(function () {
             return false;
         }
     });
+    $("#btnIniciar").click(function () {
+        var correo = $("#correo").val();
+        var pass = $("#pass").val();
+
+        if (correo == "" || correo == null) {
+            Swal.fire({
+                //error
+                type: 'error',
+                title: 'Error',
+                text: '¡Ingresar el Correo!',
+            });
+            $("#email").focus();
+            return false;
+        }
+        if (pass1 == "" || pass1 == null) {
+            Swal.fire({
+                //error
+                type: 'error',
+                title: 'Error',
+                text: '¡Ingresar la Contraseña!',
+            });
+            $("#pass1").focus();
+            return false;
+        }
+    });
 });

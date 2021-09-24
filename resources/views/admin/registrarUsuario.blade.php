@@ -33,19 +33,17 @@
         <div class="container-fluid" id="sticky-sidebar">
             <div class="panel shadow">
                 <div class="col-md-9">
-
-                    <div class="header">
-
+                    <div class="header text-justify">
                             <h1 >Agregar Usuario</h1>
                     </div>
                 </div>
                 <div class="inside">
                     <div class="row">
                         <div class="col-md-6">
-                            <label for="nombre">Nombre:</label>
+                            <label for="materno" class="mtop16">Apellido Materno:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="nombre"  class="form-control" placeholder="Ingresa Nombre">
+                                <input type="text" name="materno" class="form-control" placeholder="Ingresa Apellido Materno">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -57,28 +55,30 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="materno" class="mtop16">Apellido Materno:</label>
+                        <div class="col-md-12">
+                            <label for="nombre">Nombre:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="materno" class="form-control" placeholder="Ingresa Apellido Materno">
+                                <input type="text" name="nombre"  class="form-control" placeholder="Ingresa Nombre">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="nombre">Rol:</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                <input type="text" name="rol" id="rol"  class="form-control" placeholder="Ingresa Nombre">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
                             <label for="correo" class="mtop16">Correo:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">@</span>
                                 <input type="text" name="correo" class="form-control" placeholder="Ingresa Correo">
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">          
-                        <label for="rol" class="mtop16">Rol:</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                            <input type="text" name="rol" class="form-control" placeholder="Ingresa rol">
-                        </div>
                         </div>
                     </div>
                     <div class="row">
@@ -100,7 +100,7 @@
                     <div class="row">
                         <div class="col-md-4 text-center ">
                         </div>
-                        <div class="col-md-3 text-center ">
+                        <div class="col-md-12 text-center ">
                             <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"> Registrar
                             </button>
                         </div>
@@ -113,11 +113,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-12 ">
-            <div class="form-group">
-                <p class="text-center">Tienes una cuenta?<a href="{{route('login')}}" id="signin"> Inicia Sesion</a></p>
             </div>
         </div>
     </form>
