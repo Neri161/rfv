@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Rol;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -13,7 +14,8 @@ class AdminController extends Controller
 
     }
     public function registroUsuario(){
-        return view('admin.registrarUsuario');
+        $roles = Rol::all();
+        return view('admin.registrarUsuario',['rol'=>$roles]);
     }
 
     public function registroForm(Request $datos)

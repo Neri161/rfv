@@ -39,7 +39,6 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-expanded="true">
-
                     Bienvenido {{session('usuario')->nombre}}
                 </a>
                 <div class="dropdown-menu " aria-labelledby="navbarDropdown">
@@ -56,8 +55,8 @@
     @yield('titulo-pagina')
     <div class="row py-3">
         <div class="col-3" id="sticky-sidebar">
-            <div class="sticky-top border text-justify">
-                <a href="{{route('admin.registrousuario')}}">Registrar Usuario</a>
+            <div class="sticky-top border text-justify ">
+                <a href="{{route('admin.registrousuario')}}" class="text-uppercase text-muted">Registrar Usuario</a>
                 @yield('contenido1')
             </div>
         </div>

@@ -52,12 +52,9 @@ class UsuarioController extends Controller
             $url = decrypt($datos->url);
             return redirect($url);
         } else {
-            if($usuario->rol == "admin")
+            if($usuario->rol_id == 1)
             return redirect()->route('admin.inicio');
         }
-    }
-    public function inicioadmin(){
-
     }
 
     public function recuperarContrasenia(Request $datos)

@@ -55,21 +55,35 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
-                            <label for="nombre">Nombre:</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="nombre"  class="form-control" placeholder="Ingresa Nombre">
+
+                            <div class="col-md-6">
+                                <label for="nombre">Nombre:</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                    <input type="text" name="nombre"  class="form-control" placeholder="Ingresa Nombre">
+                                </div>
                             </div>
-                        </div>
+                            <div class="col-md-6">
+                                <label for="correo" class="mtop16">Usuario:</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                    <input type="text" name="user" class="form-control" placeholder="Ingresa Usuario">
+                                </div>
+                            </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <label for="nombre">Rol:</label>
-                            <div class="input-group mb-3">
+                            <!--<div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 <input type="text" name="rol" id="rol"  class="form-control" placeholder="Ingresa Nombre">
-                            </div>
+                            </div>-->
+                            <select class="browser-default custom-select">
+                                <option selected="">Selecciona El Rol</option>
+                                @foreach($rol as $roles)
+                                <option value="{{$roles->id}}">{{$roles->rol}}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row">
