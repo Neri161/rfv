@@ -38,14 +38,8 @@
                     </div>
                 </div>
                 <div class="inside">
+                   
                     <div class="row">
-                        <div class="col-md-6">
-                            <label for="materno" class="mtop16">Apellido Materno:</label>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="materno" class="form-control" placeholder="Ingresa Apellido Materno">
-                            </div>
-                        </div>
                         <div class="col-md-6">
                             <label for="paterno">Apellido Paterno:</label>
                             <div class="input-group mb-3">
@@ -53,6 +47,14 @@
                                 <input type="text" name="paterno" class="form-control" placeholder="Ingresa Apellido Paterno">
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <label for="materno" class="mtop16">Apellido Materno:</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                <input type="text" name="materno" class="form-control" placeholder="Ingresa Apellido Materno">
+                            </div>
+                        </div>
+                       
                     </div>
                     <div class="row">
 
@@ -64,11 +66,13 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="correo" class="mtop16">Usuario:</label>
+                                <label for="comprobarUsuario" class="mtop16">Usuario:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                    <input type="text" name="user" class="form-control" placeholder="Ingresa Usuario">
+                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresa Usuario" >
+                                    <!--<span> id="estadoUsuario</span>-->
                                 </div>
+                                <p><img src="LoaderIcon.gif" id="loaderIcon" style="display:none" /></p>
                             </div>
                     </div>
                     <div class="row">
@@ -78,7 +82,7 @@
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 <input type="text" name="rol" id="rol"  class="form-control" placeholder="Ingresa Nombre">
                             </div>-->
-                            <select class="browser-default custom-select">
+                            <select class="browser-default custom-select" name="rol">
                                 <option selected="">Selecciona El Rol</option>
                                 @foreach($rol as $roles)
                                 <option value="{{$roles->id}}">{{$roles->rol}}</option>
@@ -133,5 +137,26 @@
 @endsection
 
 @section('js')
+<script>
+    $("#usuario").on("keyup",function(){
+        $.ajax({
+            headers:{
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type:"get",
+            url:"{{route('admin.usuario')}}",
+            datatype:'json',
+            cache:false,
+            success: function(data){ 
+            const hola=JSON.stringify(data);
+              console.log(hola);  
 
+               if(data.estatus=='exito')
+               alert (data.mensaje + '');
+               else
+               alert(data.mensaje + '');
+            }
+        });
+    });
+</script>
 @endsection

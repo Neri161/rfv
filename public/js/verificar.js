@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $("#btnRegistrar").click(function () {
         var nombre = $("#nombre").val();
         var paterno = $("#paterno").val();
@@ -102,3 +103,5 @@ $(document).ready(function () {
         }
     });
 });
+
+

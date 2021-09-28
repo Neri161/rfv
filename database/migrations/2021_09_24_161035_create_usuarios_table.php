@@ -19,6 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('nombre', 50);
             $table->string('paterno', 50);
             $table->string('materno', 50);
+            $table->string('usuario', 50);
             $table->string('correo', 100);
             $table->text('password');
             $table->text('token_recovery')->nullable();
