@@ -159,6 +159,7 @@
                     $("#usuario").css("border-color","red")
                     $("#usuario").css("box-shadow","1px 1px 1px 1px red")
                 }
+
             }
         });
     });
