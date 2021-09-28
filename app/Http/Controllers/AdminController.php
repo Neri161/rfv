@@ -19,7 +19,7 @@ class AdminController extends Controller
     }
 
     public function usuario(){
-        return json_encode(['estatus'=>'exito','mensaje'=>'Hola']);
+        return json_encode(["estatus" => "success","mensaje" => "Hola Delfines"]);
     }
 
     /*public function comprobarUsuario()
@@ -33,7 +33,7 @@ class AdminController extends Controller
         {
             echo "<span class='estado-disponible-usuario'> Usuario Disponible.</span>";
         }
-        
+
     }*/
 
 
@@ -42,10 +42,10 @@ class AdminController extends Controller
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
         $usuario = Usuario::where('correo', $datos->correo)->first();
-       
+
         if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
-       
+
 
         if ($datos->pass1 != $datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);

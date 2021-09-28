@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="inside">
-                   
+
                     <div class="row">
                         <div class="col-md-6">
                             <label for="paterno">Apellido Paterno:</label>
@@ -54,7 +54,7 @@
                                 <input type="text" name="materno" class="form-control" placeholder="Ingresa Apellido Materno">
                             </div>
                         </div>
-                       
+
                     </div>
                     <div class="row">
 
@@ -140,21 +140,19 @@
 <script>
     $("#usuario").on("keyup",function(){
         $.ajax({
-            headers:{
+            headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            type:"get",
+            type: "get",
             url:"{{route('admin.usuario')}}",
-            datatype:'json',
-            cache:false,
-            success: function(data){ 
-            const hola=JSON.stringify(data);
-              console.log(hola);  
-
-               if(data.estatus=='exito')
-               alert (data.mensaje + '');
-               else
-               alert(data.mensaje + '');
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+                if(data.estatus == "success"){
+                    alert(data.mensaje);
+                }else{
+                    alert('hola?');
+                }
             }
         });
     });
