@@ -139,19 +139,25 @@
 @section('js')
 <script>
     $("#usuario").on("keyup",function(){
+        var texto =  $("#usuario").val();
+
         $.ajax({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "get",
-            url:"{{route('admin.usuario')}}",
+            url:"{{route('admin.usuario')}}/"+texto,
             dataType: 'json',
             cache: false,
             success: function (data) {
                 if(data.estatus == "success"){
-                    alert(data.mensaje);
+                   // alert(data.mensaje);
+                    $("#usuario").css("border-color","green")
+                    $("#usuario").css("box-shadow","1px 1px 1px 1px green")
                 }else{
-                    alert('hola?');
+                   // alert('hola?');
+                    $("#usuario").css("border-color","red")
+                    $("#usuario").css("box-shadow","1px 1px 1px 1px red")
                 }
             }
         });

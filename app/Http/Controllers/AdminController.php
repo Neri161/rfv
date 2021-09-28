@@ -18,8 +18,12 @@ class AdminController extends Controller
         return view('admin.registrarUsuario',['rol'=>$roles]);
     }
 
-    public function usuario(){
-        return json_encode(["estatus" => "success","mensaje" => "Hola Delfines"]);
+    public function usuario($texto){
+        $usuario = Usuario::where("usuario",$texto)->first();
+        if(!$usuario)
+            return json_encode(["estatus" => "success","mensaje" => "No existe"]);
+        else
+            return json_encode(["estatus" => "error","mensaje" => "Si existe"]);
     }
 
     /*public function comprobarUsuario()
