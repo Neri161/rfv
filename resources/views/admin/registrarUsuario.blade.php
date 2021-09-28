@@ -148,13 +148,13 @@
             datatype:'json',
             cache:false,
             success: function(data){ 
-            const hola=JSON.stringify(data);
-              console.log(hola);  
+                const hola=JSON.stringify(data);
+              console.log(data.estatus);  
 
-               if(data.estatus=='exito')
+              /* if(data.estatus=='exito')
                alert (data.mensaje + '');
                else
-               alert(data.mensaje + '');
+               alert(data.mensaje + '');*/
             }
         });
     });
