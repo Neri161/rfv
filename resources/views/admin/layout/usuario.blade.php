@@ -40,8 +40,8 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-expanded="true">
                     Bienvenido {{session('usuario')->nombre}}
-                </a>
-                <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                </a>              
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{route('cerrar.sesion')}}">Cerrar Sesion</a>
                 </div>
             </li>
