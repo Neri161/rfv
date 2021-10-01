@@ -56,7 +56,8 @@
     <div class="row py-3">
         <div class="col-3" id="sticky-sidebar">
             <div class="sticky-top border text-justify">
-                <a href="{{route('admin.registrousuario')}}"></a>
+                <a href="{{route('admin.registrousuario')}}">Registrar Usuario</a><br>
+                <a href="{{route('admin.gerencia')}}">Registrar Gerencia</a>
             @yield('contenido1')
             </div>
         </div>

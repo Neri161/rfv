@@ -17,7 +17,6 @@ class AdminController extends Controller
         $roles = Rol::all();
         return view('admin.registrarUsuario',['rol'=>$roles]);
     }
-
     public function usuario($texto){
         $usuario = Usuario::where("usuario",$texto)->first();
         if(!$usuario)
@@ -25,22 +24,6 @@ class AdminController extends Controller
         else
             return json_encode(["estatus" => "error","mensaje" => "Si existe"]);
     }
-
-    /*public function comprobarUsuario()
-    {
-        $usuarios = Usuario::all();
-        if($usuarios>0)
-        {
-            echo "<span class='estado-no-disponible-usuario'> Usuario no Disponible.</span>";
-        }
-        else
-        {
-            echo "<span class='estado-disponible-usuario'> Usuario Disponible.</span>";
-        }
-
-    }*/
-
-
     public function registroForm(Request $datos)
     {
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
@@ -49,7 +32,6 @@ class AdminController extends Controller
 
         if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
-
 
         if ($datos->pass1 != $datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
@@ -66,5 +48,8 @@ class AdminController extends Controller
         $roles= Rol::all();
 
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!","rol"=>$roles]);
+    }
+    public function vistaRegistrarGerencia(){
+        return view('admin.registrarGerencia');
     }
 }
