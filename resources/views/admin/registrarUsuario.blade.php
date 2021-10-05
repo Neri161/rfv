@@ -8,9 +8,6 @@
 @endsection
 
 @section('contenido')
-
-
-
     <!--  Formulario registrar usuario -->
     <form action="{{route('registro.form')}}" method="post" name="registration">
         {{csrf_field()}}
