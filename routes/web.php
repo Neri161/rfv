@@ -36,8 +36,10 @@ Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function () {
 Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/inicio', [AdminController::class, 'inicio'])->name('admin.inicio');
     Route::get('/RegistrarUsuario', [AdminController::class, 'registroUsuario'])->name('admin.registrousuario');
+    Route::get('/EditarUsuario', [AdminController::class, 'editarUsuario'])->name('admin.editarusuario');
     //Route::post('/registro',[AdminContoller::class,'registro'])->name('admin.registro');
     Route::post('/registroForm',[AdminController::class,'registroForm'])->name('registro.form');
+    Route::patch('/editForm',[AdminController::class,'editForm'])->name('edit.form'); //ruta cambiar datos usuario
     Route::get('/usuario/{texto?}',[AdminController::class,'usuario'])->name('admin.usuario');
 
 });

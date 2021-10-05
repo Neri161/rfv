@@ -59,11 +59,17 @@
                 <a href="{{route('admin.registrousuario')}}" class="text-uppercase text-muted">Registrar Usuario</a>
                 @yield('contenido1')
             </div>
+            <br>
+            <div class="sticky-top border text-justify ">
+                <a href="{{route('admin.editarusuario')}}" class="text-uppercase text-muted">Cambiar datos</a>
+                @yield('contenido1')
+            </div>
         </div>
         <div class="col order-2 border text-justify" id="main">
             @yield('contenido2')
         </div>
     </div>
+   
 </div>
 
 

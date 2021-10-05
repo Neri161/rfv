@@ -17,7 +17,11 @@ class AdminController extends Controller
         $roles = Rol::all();
         return view('admin.registrarUsuario',['rol'=>$roles]);
     }
-
+    public function editarUsuario(){
+        $roles = Rol::all();
+        
+        return view('admin.editarUsuario',['rol'=>$roles]);
+    }
     public function usuario($texto){
         $usuario = Usuario::where("usuario",$texto)->first();
         if(!$usuario)
@@ -25,31 +29,16 @@ class AdminController extends Controller
         else
             return json_encode(["estatus" => "error","mensaje" => "Si existe"]);
     }
-
-    /*public function comprobarUsuario()
-    {
-        $usuarios = Usuario::all();
-        if($usuarios>0)
-        {
-            echo "<span class='estado-no-disponible-usuario'> Usuario no Disponible.</span>";
-        }
-        else
-        {
-            echo "<span class='estado-disponible-usuario'> Usuario Disponible.</span>";
-        }
-
-    }*/
-
-
+    
     public function registroForm(Request $datos)
     {
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
         $usuario = Usuario::where('correo', $datos->correo)->first();
-
+       
         if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
-
+       
 
         if ($datos->pass1 != $datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
@@ -66,5 +55,24 @@ class AdminController extends Controller
         $roles= Rol::all();
 
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!","rol"=>$roles]);
+    }
+
+    //actulizar datos de usuario
+    public function editForm(Request $datos)
+    {
+        if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
+            return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
+        $usuario = Usuario::where('correo', $datos->correo)->first();
+        if ($usuario)
+            return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
+        if ($datos->pass1 != $datos->pass2)
+            return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
+        
+        $usuario = Usuario::where('id', session('usuario')->id)->first();
+        $usuario->usuario=$datos->usuario;
+        $usuario->correo = $datos->correo;
+        $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);       
+        $usuario->save();   
+        return redirect()->route('login');
     }
 }

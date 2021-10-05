@@ -31,8 +31,6 @@ class UsuarioController extends Controller
         return view('recuperar');
     }
 
-
-
     public function verificarCredenciales(Request $datos)
     {
         if (!$datos->correo || !$datos->password)
@@ -56,6 +54,7 @@ class UsuarioController extends Controller
             return redirect()->route('admin.inicio');
         }
     }
+    
 
     public function recuperarContrasenia(Request $datos)
     {
