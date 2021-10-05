@@ -1,22 +1,14 @@
 @extends('admin.layout.usuario')
 
 @section('titulo')
-    <title>Inicio</title>
+    <title>Registrar Gerencias</title>
 @endsection
 
 @section('css')
 
 @endsection
 
-@section('titulo-pagina')
-
-@endsection
-
-@section('contenido1')
-
-@endsection
-
-@section('contenido2')
+@section('contenido')
     <link rel="stylesheet" href="css/login.css">
 
 
