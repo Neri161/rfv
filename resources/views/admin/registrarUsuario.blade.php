@@ -19,7 +19,6 @@
             @endif
         @endif
         <div class="container-fluid" id="sticky-sidebar">
-            <div class="panel shadow">
                 <div class="col-md-9">
                     <div class="header text-justify">
                         <h1>Agregar Usuario</h1>
@@ -67,16 +66,21 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <label for="nombre">Rol:</label>
-                            <!--<div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="rol" id="rol"  class="form-control" placeholder="Ingresa Nombre">
-                            </div>-->
                             <select class="browser-default custom-select" name="rol">
                                 <option selected="">Selecciona El Rol</option>
                                 @foreach($rol as $roles)
                                     <option value="{{$roles->id}}">{{$roles->rol}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="nombre">Gerencia:</label>
+                            <select class="browser-default custom-select" name="rol">
+                                <option selected="">Selecciona El Area De Gerencia</option>
+                                @foreach($gerencia as $gerencias)
+                                    <option value="{{$gerencias->id}}">{{$gerencias->gerencia}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -86,7 +90,7 @@
                             <label for="correo" class="mtop16">Correo:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">@</span>
-                                <input type="text" name="correo" class="form-control" placeholder="Ingresa Correo">
+                                <input type="email" name="correo" class="form-control" placeholder="Ingresa Correo">
                             </div>
                         </div>
                     </div>
@@ -95,14 +99,14 @@
                             <label for="password1" class="mtop16">Contraseña:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
-                                <input type="text" name="pass1" class="form-control" placeholder="Ingresa Contraseña">
+                                <input type="password" name="pass1" class="form-control" placeholder="Ingresa Contraseña">
                             </div>
                         </div>
                         <div class="col-md-6 ">
                             <label for="password2" class="mtop16">Confirmar Contraseña:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
-                                <input type="text" name="pass2" class="form-control" placeholder="Ingresa Contraseña ">
+                                <input type="password" name="pass2" class="form-control" placeholder="Ingresa Contraseña ">
                             </div>
                         </div>
                     </div>
@@ -122,7 +126,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </form>
 @endsection
