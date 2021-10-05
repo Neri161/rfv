@@ -22,7 +22,6 @@ class AdminController extends Controller
 
     public function editarUsuario(){
         $roles = Rol::all();
-
         return view('admin.editarUsuario',['rol'=>$roles]);
     }
 
@@ -83,7 +82,6 @@ class AdminController extends Controller
     }
     public function vistaRegistrarGerencia(){
         return view('admin.registrarGerencia');
-
     }
     public function gerenciaForm(Request $datos){
         if (!$datos->gerencia)
