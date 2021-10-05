@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Laura Bootstrap Template - Index</title>
+    <title>Refividrio | E-learning</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -46,7 +46,7 @@
             <li><a href="#hero">Inicio</a></li>
             <li><a href="#resume">Acerca de Refividrio</a></li>
 
-            <li><a href="#footer"> Contacto</a></li> 
+            <li><a href="#footer"> Contacto</a></li>
             <li><a href="{{route('login')}}">Iniciar sesión</a></li><!--Redirige al login-->
 
         </ul>
@@ -105,7 +105,7 @@
                                 principalmente de ideas
                                 propositivas y valores humanos como:
                                 Integridad, efectividad, confiabilidad, compromiso, eficacia, responsabilidad,
-                                eficiencia: 
+                                eficiencia:
                               </p>
                             <p>Valores que nos guían día a día para cumplir el propósito de consolidar nuestros productos y
                             servicios
@@ -115,9 +115,9 @@
                              </p>
 
                          </em>
-                                
-                     </div>                  
-                                                          
+
+                     </div>
+
                 </div>
                 <div class="col-lg-6">
                     <h3 class="resume-title">VALORES</h3>
@@ -156,9 +156,9 @@
                             </p>
                         </em>
 
-                    </div>                  
+                    </div>
 
-                    
+
 
                 </div>
             </div>

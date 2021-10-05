@@ -13,7 +13,7 @@
 
 
     <!--  Formulario registrar usuario -->
-    <form action="{{route('registro.form')}}" method="post" name="registration">
+    <form action="{{route('gerencia.form')}}" method="post" name="registration">
         {{csrf_field()}}
         @if(isset($estatus))
             @if($estatus == "success")
@@ -26,22 +26,20 @@
             <div class="panel shadow">
                 <div class="col-md-9">
                     <div class="header text-justify">
-                            <h1 >Agregar Usuario</h1>
+                            <h1 >Agregar Gerencia </h1>
                     </div>
                 </div>
                 <div class="inside">
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="correo" class="mtop16">Correo:</label>
+                            <label for="correo" class="mtop16">Gerencia:</label>
                             <div class="input-group mb-3">
-                                <span class="input-group-text" id="basic-addon1">@</span>
-                                <input type="text" name="correo" class="form-control" placeholder="Ingresa Correo">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
+                                <input type="text" name="gerencia" class="form-control" placeholder="Registrar Gerencia">
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 text-center ">
-                        </div>
                         <div class="col-md-12 text-center ">
                             <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"> Registrar
                             </button>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Rol;
+use App\Models\Gerencia;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -15,12 +16,13 @@ class AdminController extends Controller
     }
     public function registroUsuario(){
         $roles = Rol::all();
-        return view('admin.registrarUsuario',['rol'=>$roles]);
+        $gerencias = Gerencia::all();
+        return view('admin.registrarUsuario',['rol'=>$roles,"gerencia"=>$gerencias]);
     }
 
     public function editarUsuario(){
         $roles = Rol::all();
-        
+
         return view('admin.editarUsuario',['rol'=>$roles]);
     }
 
@@ -37,7 +39,7 @@ class AdminController extends Controller
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
         $usuario = Usuario::where('correo', $datos->correo)->first();
-       
+
         if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
 
@@ -55,8 +57,9 @@ class AdminController extends Controller
         $usuario->rol_id = $datos->rol;
         $usuario->save();
         $roles= Rol::all();
+        $gerencias = Gerencia::all();
 
-        return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!","rol"=>$roles]);
+        return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!","rol"=>$roles,"gerencia"=>$gerencias]);
     }
 
 
@@ -70,16 +73,31 @@ class AdminController extends Controller
             return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
         if ($datos->pass1 != $datos->pass2)
             return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
-        
+
         $usuario = Usuario::where('id', session('usuario')->id)->first();
         $usuario->usuario=$datos->usuario;
         $usuario->correo = $datos->correo;
-        $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);       
-        $usuario->save();   
+        $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
+        $usuario->save();
         return redirect()->route('login');
     }
     public function vistaRegistrarGerencia(){
         return view('admin.registrarGerencia');
 
+    }
+    public function gerenciaForm(Request $datos){
+        if (!$datos->gerencia)
+            return view("admin.registrarGerencia", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
+
+        $gerencia = Gerencia::where('gerencia',$datos->gerencia)->first();
+
+        if ($gerencia)
+            return view("admin.registrarGerencia", ["estatus" => "error", "mensaje" => "¡La gerencia ya ha sido registrada!"]);
+
+        $gerencia = New Gerencia();
+        $gerencia->gerencia = $datos->gerencia;
+        $gerencia->save();
+
+        return view("admin.registrarGerencia", ["estatus" => "success", "mensaje" => "¡Gerencia Registrada!"]);
     }
 }
