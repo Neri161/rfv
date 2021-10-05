@@ -8,19 +8,11 @@
 
 @endsection
 
-@section('titulo-pagina')
-
-@endsection
-
-@section('contenido1')
-
-@endsection
-
-@section('contenido2')
+@section('contenido')
     <link rel="stylesheet" href="css/login.css">
 
 
-    <!--  Formulario registrar usuario -->
+    <!--  Formulario editar usuario -->
     <form action="{{route('edit.form')}}" method="post" name="registration">
         {{csrf_field()}}
         @csrf @method('PATCH')

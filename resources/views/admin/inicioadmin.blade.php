@@ -8,15 +8,7 @@
 
 @endsection
 
-@section('titulo-pagina')
-
-@endsection
-
-@section('contenido1')
-
-@endsection
-
-@section('contenido2')
+@section('contenido')
     <h1 class="text-center"> Bienvenido {{session('usuario')->nombre}} </h1>
 @endsection
 

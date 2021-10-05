@@ -1,23 +1,14 @@
 @extends('admin.layout.usuario')
 
 @section('titulo')
-    <title>Inicio</title>
+    <title>Registrar Gerencias</title>
 @endsection
 
 @section('css')
-
 @endsection
 
-@section('titulo-pagina')
+@section('contenido')
 
-@endsection
-
-@section('contenido1')
-
-@endsection
-
-@section('contenido2')
-    <link rel="stylesheet" href="css/login.css">
 
 
     <!--  Formulario registrar usuario -->
@@ -34,7 +25,7 @@
             <div class="panel shadow">
                 <div class="col-md-9">
                     <div class="header text-justify">
-                            <h1 >Agregar Usuario</h1>
+                        <h1>Agregar Usuario</h1>
                     </div>
                 </div>
                 <div class="inside">
@@ -44,36 +35,39 @@
                             <label for="paterno">Apellido Paterno:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="paterno" class="form-control" placeholder="Ingresa Apellido Paterno">
+                                <input type="text" name="paterno" class="form-control"
+                                       placeholder="Ingresa Apellido Paterno">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <label for="materno" class="mtop16">Apellido Materno:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="materno" class="form-control" placeholder="Ingresa Apellido Materno">
+                                <input type="text" name="materno" class="form-control"
+                                       placeholder="Ingresa Apellido Materno">
                             </div>
                         </div>
 
                     </div>
                     <div class="row">
 
-                            <div class="col-md-6">
-                                <label for="nombre">Nombre:</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                    <input type="text" name="nombre"  class="form-control" placeholder="Ingresa Nombre">
-                                </div>
+                        <div class="col-md-6">
+                            <label for="nombre">Nombre:</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                <input type="text" name="nombre" class="form-control" placeholder="Ingresa Nombre">
                             </div>
-                            <div class="col-md-6">
-                                <label for="comprobarUsuario" class="mtop16">Usuario:</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresa Usuario" >
-                                    <!--<span> id="estadoUsuario</span>-->
-                                </div>
-                                <p><img src="LoaderIcon.gif" id="loaderIcon" style="display:none" /></p>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="comprobarUsuario" class="mtop16">Usuario:</label>
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+                                <input type="text" name="usuario" id="usuario" class="form-control"
+                                       placeholder="Ingresa Usuario">
+                                <!--<span> id="estadoUsuario</span>-->
                             </div>
+                            <p><img src="LoaderIcon.gif" id="loaderIcon" style="display:none"/></p>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
@@ -85,7 +79,7 @@
                             <select class="browser-default custom-select" name="rol">
                                 <option selected="">Selecciona El Rol</option>
                                 @foreach($rol as $roles)
-                                <option value="{{$roles->id}}">{{$roles->rol}}</option>
+                                    <option value="{{$roles->id}}">{{$roles->rol}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -137,31 +131,31 @@
 @endsection
 
 @section('js')
-<script>
-    $("#usuario").on("keyup",function(){
-        var texto =  $("#usuario").val();
+    <script>
+        $("#usuario").on("keyup", function () {
+            var texto = $("#usuario").val();
 
-        $.ajax({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            type: "get",
-            url:"{{route('admin.usuario')}}/"+texto,
-            dataType: 'json',
-            cache: false,
-            success: function (data) {
-                if(data.estatus == "success"){
-                   // alert(data.mensaje);
-                    $("#usuario").css("border-color","green")
-                    $("#usuario").css("box-shadow","1px 1px 1px 1px green")
-                }else{
-                   // alert('hola?');
-                    $("#usuario").css("border-color","red")
-                    $("#usuario").css("box-shadow","1px 1px 1px 1px red")
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "get",
+                url: "{{route('admin.usuario')}}/" + texto,
+                dataType: 'json',
+                cache: false,
+                success: function (data) {
+                    if (data.estatus == "success") {
+                        // alert(data.mensaje);
+                        $("#usuario").css("border-color", "green")
+                        $("#usuario").css("box-shadow", "1px 1px 1px 1px green")
+                    } else {
+                        // alert('hola?');
+                        $("#usuario").css("border-color", "red")
+                        $("#usuario").css("box-shadow", "1px 1px 1px 1px red")
+                    }
+
                 }
-
-            }
+            });
         });
-    });
-</script>
+    </script>
 @endsection

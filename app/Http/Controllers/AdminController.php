@@ -17,11 +17,13 @@ class AdminController extends Controller
         $roles = Rol::all();
         return view('admin.registrarUsuario',['rol'=>$roles]);
     }
+
     public function editarUsuario(){
         $roles = Rol::all();
         
         return view('admin.editarUsuario',['rol'=>$roles]);
     }
+
     public function usuario($texto){
         $usuario = Usuario::where("usuario",$texto)->first();
         if(!$usuario)
@@ -29,7 +31,7 @@ class AdminController extends Controller
         else
             return json_encode(["estatus" => "error","mensaje" => "Si existe"]);
     }
-    
+
     public function registroForm(Request $datos)
     {
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
@@ -38,7 +40,7 @@ class AdminController extends Controller
        
         if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
-       
+
 
         if ($datos->pass1 != $datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
@@ -57,6 +59,7 @@ class AdminController extends Controller
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!","rol"=>$roles]);
     }
 
+
     //actulizar datos de usuario
     public function editForm(Request $datos)
     {
@@ -74,5 +77,9 @@ class AdminController extends Controller
         $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);       
         $usuario->save();   
         return redirect()->route('login');
+    }
+    public function vistaRegistrarGerencia(){
+        return view('admin.registrarGerencia');
+
     }
 }
