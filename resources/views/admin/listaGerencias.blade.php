@@ -9,6 +9,7 @@
 @endsection
 
 @section('contenido')
+
 @endsection
 
 @section('js')
