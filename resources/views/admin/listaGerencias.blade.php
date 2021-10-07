@@ -9,6 +9,7 @@
 @endsection
 
 @section('contenido')
+
  
 <div class="inside">    
     <div class="row">

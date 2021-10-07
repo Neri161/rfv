@@ -18,7 +18,7 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
-    @yield('css')
+    @yield('CSS')
 </head>
 
 <body id="page-top">
@@ -83,12 +83,17 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
+
                     <a class="collapse-item" href="{{route('admin.editarusuario')}}"><i class="fas fa-user-tie"></i>
                         Lista Usuarios
                     </a>
                   <a class="collapse-item" href="{{route('admin.listagerencias')}}"><i class="fas fa-user-tie"></i>
                             Lista de Gerencias
                   </a>
+
+                    <a class="collapse-item" href="{{route('list.user')}}"><i class="fas fa-user-tie"></i>
+                        Lista Usuarios</a>
+
 
                 </div>
             </div>
@@ -294,8 +299,11 @@
         </div>
     </div>
 </div>
-<!-- Bootstrap core JavaScript-->
-<script src="/vendor/jquery/jquery.min.js"></script>
+<!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="/dtjs/jquery/jquery-3.3.1.min.js"></script>
+<script src="/dtjs/popper/popper.min.js"></script>
+<script src="/dtjs/bootstrap/js/bootstrap.min.js"></script>
+
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
 <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
