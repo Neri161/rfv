@@ -72,18 +72,23 @@
             </div>
         </li>
         <!-- Nav Item - Utilities Collapse Menu -->
+        
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilidades</span>
+                <i class="fas fa-fw fa-table"></i>
+                <span>Consultar listas</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <!--<h6 class="collapse-header">Custom Utilities:</h6>-->
                     <a class="collapse-item" href="{{route('admin.editarusuario')}}"><i class="fas fa-user-tie"></i>
-                        Lista Usuarios</a>
+                        Lista Usuarios
+                    </a>
+                  <a class="collapse-item" href="{{route('admin.listagerencias')}}"><i class="fas fa-user-tie"></i>
+                            Lista de Gerencias
+                  </a>
 
                 </div>
             </div>
@@ -218,18 +223,15 @@
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                             <a class="dropdown-item" href="{{route('admin.datosusuario')}}">
+                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{route('admin.editarusuario')}}">
                                 <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Ajustes
+                                Editar perfil
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                Actividad Reciente
-                            </a>
+                           
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

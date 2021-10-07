@@ -34,7 +34,7 @@
                         <label for="correo" class="mtop16">Gerencia:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="gerencia" class="form-control" placeholder="Registrar Gerencia">
+                            <input type="text" name="gerencia" class="form-control" placeholder="Ingresa nombre de  Gerencia">
                         </div>
                     </div>
                 </div>
