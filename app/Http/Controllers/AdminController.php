@@ -11,9 +11,7 @@ class AdminController extends Controller
 {
     public function inicio()
     {
-
         return view('admin.inicioadmin');
-
     }
 
     public function registroUsuario()
@@ -134,5 +132,8 @@ class AdminController extends Controller
             }
         }
         return view("admin.listaUsuarios", ["usuario" => $usuarios]);
+    }
+    public function eliminarUsuario(){
+
     }
 }
