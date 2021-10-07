@@ -77,7 +77,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="nombre">Gerencia:</label>
-                            <select class="browser-default custom-select" name="rol">
+                            <select class="browser-default custom-select" name="gerencia">
                                 <option selected="">Selecciona El Area De Gerencia</option>
                                 @foreach($gerencia as $gerencias)
                                     <option value="{{$gerencias->id}}">{{$gerencias->gerencia}}</option>
