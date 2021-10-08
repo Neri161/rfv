@@ -11,9 +11,7 @@ class AdminController extends Controller
 {
     public function inicio()
     {
-
         return view('admin.inicioadmin');
-
     }
 
     public function registroUsuario()
@@ -50,16 +48,19 @@ class AdminController extends Controller
 
     public function registroForm(Request $datos)
     {
+        $roles = Rol::all();
+        $gerencias = Gerencia::all();
+
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
-            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
+            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!", "rol" => $roles, "gerencia" => $gerencias]);
         $usuario = Usuario::where('correo', $datos->correo)->first();
 
         if ($usuario)
-            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
+            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!", "rol" => $roles, "gerencia" => $gerencias]);
 
 
         if ($datos->pass1 != $datos->pass2)
-            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
+            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!", "rol" => $roles, "gerencia" => $gerencias]);
 
         $usuario = new Usuario();
         $usuario->nombre = $datos->nombre;
@@ -69,13 +70,11 @@ class AdminController extends Controller
         $usuario->correo = $datos->correo;
         $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
         $usuario->rol_id = $datos->rol;
+        $usuario->gerencia_id = $datos->gerencia;
         $usuario->save();
-        $roles = Rol::all();
-        $gerencias = Gerencia::all();
-
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!", "rol" => $roles, "gerencia" => $gerencias]);
     }
-    
+
     //actulizar datos de usuario
     public function editForm(Request $datos)
     {
@@ -133,5 +132,8 @@ class AdminController extends Controller
             }
         }
         return view("admin.listaUsuarios", ["usuario" => $usuarios]);
+    }
+    public function eliminarUsuario(){
+
     }
 }

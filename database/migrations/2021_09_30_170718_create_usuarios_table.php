@@ -24,6 +24,7 @@ class CreateUsuariosTable extends Migration
             $table->text('token_recovery')->nullable();
             $table->unsignedBigInteger('rol_id')->nullable();
             $table->unsignedBigInteger('gerencia_id')->nullable();
+            $table->string('estatus',50);
             $table->foreign('rol_id')->
             references('id')->on('rols')
                 ->onDelete('set null');

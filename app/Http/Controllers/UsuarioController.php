@@ -36,10 +36,13 @@ class UsuarioController extends Controller
         if (!$datos->correo || !$datos->password)
             return view("login", ["estatus" => "error", "mensaje" => "¡Completa los campos!"]);
 
-        $usuario = Usuario::where('correo', $datos->correo)->first();
+        $usuario = Usuario::where('correo', $datos->correo)->orwhere('usuario',$datos->correo)->first();
 
         if (!$usuario)
             return view("login", ["estatus" => "error", "mensaje" => "¡El correo no esta registrado!"]);
+
+        if($usuario->estatus=='inactivo')
+            return view("login", ["estatus" => "error", "mensaje" => "¡El usuario estat dado de baja!"]);
 
         if (!password_verify($datos->password, $usuario->password))
             return view("login", ["estatus" => "error", "mensaje" => "¡La contraseña que ingresaste es incorrecta!"]);
@@ -54,7 +57,7 @@ class UsuarioController extends Controller
             return redirect()->route('admin.inicio');
         }
     }
-    
+
 
     public function recuperarContrasenia(Request $datos)
     {

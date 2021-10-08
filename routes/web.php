@@ -45,4 +45,5 @@ Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/EditarUsuario', [AdminController::class, 'editarUsuario'])->name('admin.editarusuario');
     Route::patch('/editForm',[AdminController::class,'editForm'])->name('edit.form'); //ruta cambiar datos usuario
     Route::get('/ListaUsuario',[AdminController::class,'listaUsuario'])->name('list.user');
+    Route::get('/ElminarUsuario/{id?}',[AdminController::class,'eliminarUsuario'])->name('eliminarUsuario');
 });

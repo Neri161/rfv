@@ -15,7 +15,7 @@
    <div class="row">
        <div class="col-lg-12">
            <div class="table-responsive">
-               <table id="example" class="table table-striped table-bordered" style="width:100%">
+               <table id="example" class="table table-striped table-bordered">
                    <thead>
                    <tr>
                        <th>Nombre</th>
@@ -25,6 +25,7 @@
                        <th>Correo</th>
                        <th>Rol</th>
                        <th>Gerencia</th>
+                       <th>Eliminar</th>
                    </tr>
                    </thead>
                    <tbody>
@@ -37,6 +38,7 @@
                            <td>{{$usuarios->correo}}</td>
                            <td>{{$usuarios->rol_id}}</td>
                            <td>{{$usuarios->gerencia_id}}</td>
+                           <td><a href="" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
                        </tr>
                    @endforeach
                    </tbody>

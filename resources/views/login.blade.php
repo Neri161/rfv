@@ -42,7 +42,7 @@
                             <label for="correo">Correo:</label>
                             <div class="input-group flex-nowrap">
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                                <input type="email" name="correo" id="correo" class="form-control" placeholder="correo"
+                                <input type="text" name="correo" id="correo" class="form-control" placeholder="correo"
                                        aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
