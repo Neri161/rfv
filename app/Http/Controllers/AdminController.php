@@ -20,9 +20,11 @@ class AdminController extends Controller
         $gerencias = Gerencia::all();
         return view('admin.registrarUsuario', ['rol' => $roles, "gerencia" => $gerencias]);
     }
-    public function datosUsuario(){
+
+    public function datosUsuario()
+    {
         $usuario = Usuario::all();
-        return view('admin.datosUsuario',['usuario'=>$usuario]);
+        return view('admin.datosUsuario', ['usuario' => $usuario]);
     }
 
     public function editarUsuario()
@@ -42,8 +44,8 @@ class AdminController extends Controller
 
     public function listaGerencias()
     {
-       $gerencia = Gerencia::all();
-       return view('admin.listaGerencias', ['gerencia'=>$gerencia]);
+        $gerencia = Gerencia::all();
+        return view('admin.listaGerencias', ['gerencia' => $gerencia]);
     }
 
     public function registroForm(Request $datos)
@@ -71,6 +73,7 @@ class AdminController extends Controller
         $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
         $usuario->rol_id = $datos->rol;
         $usuario->gerencia_id = $datos->gerencia;
+        $usuario->estatus="activo";
         $usuario->save();
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!", "rol" => $roles, "gerencia" => $gerencias]);
     }
@@ -118,7 +121,7 @@ class AdminController extends Controller
 
     public function listaUsuario()
     {
-        $usuarios = Usuario::all();
+        $usuarios = Usuario::where('estatus', 'activo')->get();
         $gerencias = Gerencia::all();
         $rol = Rol::all();
         foreach ($usuarios as $valor) {
@@ -133,7 +136,9 @@ class AdminController extends Controller
         }
         return view("admin.listaUsuarios", ["usuario" => $usuarios]);
     }
-    public function eliminarUsuario(){
+
+    public function eliminarUsuario()
+    {
 
     }
 }
