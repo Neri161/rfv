@@ -27,15 +27,12 @@
                         Apellido paterno: {{session('usuario')->paterno}} 
                         Apellido materno: {{session('usuario')->materno}} 
                         Usuario: {{session('usuario')->usuario}} 
-                        Correo: {{session('usuario')->correo}} 
-                        
-                        
-                      </textarea>
-                     
-                   
-                    
+                        Correo: {{session('usuario')->correo}}  
+                      </textarea>     
                   
                 </div>
+                <a  href="{{route('admin.editarusuario')}}" class="btn btn-primary btn-lg btn-block">  Editar perfil  </a>
+                
             </div>
         </div>          
     
