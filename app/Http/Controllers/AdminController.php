@@ -73,7 +73,7 @@ class AdminController extends Controller
         $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
         $usuario->rol_id = $datos->rol;
         $usuario->gerencia_id = $datos->gerencia;
-        $usuario->estatus="activo";
+        $usuario->estatus = "activo";
         $usuario->save();
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!", "rol" => $roles, "gerencia" => $gerencias]);
     }
@@ -121,7 +121,7 @@ class AdminController extends Controller
 
     public function listaUsuario()
     {
-        $usuarios = Usuario::where('estatus', 'activo')->get();
+        $usuarios = Usuario::all();
         $gerencias = Gerencia::all();
         $rol = Rol::all();
         foreach ($usuarios as $valor) {
@@ -136,9 +136,26 @@ class AdminController extends Controller
         }
         return view("admin.listaUsuarios", ["usuario" => $usuarios]);
     }
-
-    public function eliminarUsuario()
+    public function eliminarUsuario($id)
     {
-
+        $usuario = Usuario::where('id', $id)->first();
+        if ($usuario) {
+            $usuario->estatus = 'inactivo';
+            $usuario->update();
+            return json_encode(["estatus" => "success", "mensaje" => "Actualizado"]);
+        }else {
+            return json_encode(["estatus" => "error", "mensaje" => "Hubo un error"]);
+        }
+    }
+    public function activarUsuario($id)
+    {
+        $usuario = Usuario::where('id', $id)->first();
+        if ($usuario) {
+            $usuario->estatus = 'activo';
+            $usuario->update();
+            return json_encode(["estatus" => "success", "mensaje" => "Actualizado"]);
+        }else {
+            return json_encode(["estatus" => "error", "mensaje" => "Hubo un error"]);
+        }
     }
 }
