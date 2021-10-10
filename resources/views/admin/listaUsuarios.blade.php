@@ -26,6 +26,7 @@
                         <th>Rol</th>
                         <th>Gerencia</th>
                         <th>Accion</th>
+                        <th>Gerencia</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -40,15 +41,19 @@
                             <td>{{$usuarios->gerencia_id}}</td>
                             @if($usuarios->estatus == "activo")
                                 <td>
-                                    <button id="usuario" idUsuario="{{$usuarios->id}}" class="btn btn-danger eliminar">
+                                    <button id="usuario" idUsuario="{{$usuarios->id}}" class="btn btn-success eliminar">
                                         <i class="fas fa-power-off"></i></button>
                                 </td>
                             @else
                                 <td>
-                                    <button id="usuario" idUsuario="{{$usuarios->id}}" class="btn btn-success activar">
+                                    <button id="usuario" idUsuario="{{$usuarios->id}}" class="btn btn-danger activar">
                                         <i class="fas fa-power-off"></i></button>
                                 </td>
                             @endif
+                            <td>
+                                <button id="usuario" idUsuario="{{$usuarios->id}}" class="btn btn-info activar">
+                                    <i class="fas fa-pen"></i></button>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -61,7 +66,6 @@
 @section('js')
     <!-- datatables JS -->
     <script type="text/javascript" src="/dtjs/datatables/datatables.min.js"></script>
-
     <script type="text/javascript" src="/dtjs/main.js"></script>
 
     <script>
@@ -78,6 +82,7 @@
                     cache: false,
                     success: function (data) {
                         if (data.estatus == "success") {
+                            alert(this.url);
                             location.reload();
                         } else {
                             alert(data.mensaje);
