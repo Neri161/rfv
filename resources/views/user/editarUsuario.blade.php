@@ -1,4 +1,4 @@
-@extends('admin.layout.usuario')
+@extends('user.layout.usuario')
 
 @section('titulo')
     <title>Inicio</title>
@@ -30,30 +30,30 @@
                             <h1 >Cambiar Datos</h1>
                     </div>
                 </div>
-                <div class="inside">    
+                <div class="inside">
                     <div class="row">
                         <div class="col-md-3 text-center ">
                         </div>
                         <div class="col-md-6">
                             <label for="correo" class="mtop16">ID:</label>
-                            <div class="input-group mb-3">                        
-                                <input type="text" name="id" class="form-control" placeholder="{{session('usuario')->id}}" disabled="true" >                    
+                            <div class="input-group mb-3">
+                                <input type="text" name="id" class="form-control" placeholder="{{session('usuario')->id}}" disabled="true" >
                             </div>
                         </div>
-                    </div>            
-                    <div class="row">   
+                    </div>
+                    <div class="row">
                         <div class="col-md-3 text-center ">
-                        </div>                
+                        </div>
                             <div class="col-md-6">
                                 <label for="comprobarUsuario" class="mtop16">Usuario:</label>
                                 <div class="input-group mb-3">
                                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                     <input type="text" name="usuario" id="usuario" class="form-control" placeholder="{{session('usuario')->usuario}}" >
-                                    
+
                                 </div>
                                 <p><img src="LoaderIcon.gif" id="loaderIcon" style="display:none" /></p>
                             </div>
-                    </div>                 
+                    </div>
                     <div class="row">
                         <div class="col-md-3 text-center ">
                         </div>
@@ -62,7 +62,7 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">@</span>
                                 <input type="text" name="correo" class="form-control" placeholder="{{session('usuario')->correo}}">
-                               
+
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                     </div>
-                 
+
                     <div class="row">
                         <div class="col-md-3 text-center ">
                         </div>
