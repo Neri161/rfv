@@ -74,6 +74,7 @@ class AdminController extends Controller
         $usuario->rol_id = $datos->rol;
         $usuario->gerencia_id = $datos->gerencia;
         $usuario->estatus = "activo";
+        $usuario->foto = "/img/undraw_profile.svg";
         $usuario->save();
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!", "rol" => $roles, "gerencia" => $gerencias]);
     }

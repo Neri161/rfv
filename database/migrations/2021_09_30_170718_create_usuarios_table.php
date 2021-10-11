@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateUsuariosTable extends Migration
 {
@@ -34,6 +35,22 @@ class CreateUsuariosTable extends Migration
                 ->onDelete('set null');
             $table->timestamps();
         });
+        DB::table("usuarios")
+            ->insert([
+                "nombre" => "Neri",
+                "paterno" => "Alvarez",
+                "materno" => "Esperon",
+                "usuario" => "admin",
+                "correo" => "nerialvareze@gmail.com",
+                "password" => '$2y$05$V4mIk5uScYgZCTbxCGVfIuqo.3D.2y92olSs1yi624mu2XakX4T9i',
+                "rol_id" => 1,
+                "gerencia_id" => 1,
+                "estatus" => "activo",
+                "foto" => '/img/undraw_profile.svg',
+                "created_at" => "2021-10-11 02:30:41",
+                "updated_at" => "2021-10-11 02:30:41"
+            ]);
+
     }
 
     /**

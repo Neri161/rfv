@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateGerenciasTable extends Migration
 {
@@ -18,6 +19,18 @@ class CreateGerenciasTable extends Migration
             $table->string('gerencia','50');
             $table->timestamps();
         });
+        DB::table("gerencias")
+            ->insert([
+                "gerencia" => "Compras",
+                "created_at" => "2021-10-11 02:30:41",
+                "updated_at" => "2021-10-11 02:30:41"
+            ]);
+        DB::table("gerencias")
+            ->insert([
+                "gerencia" => "Ventas",
+                "created_at" => "2021-10-11 02:30:41",
+                "updated_at" => "2021-10-11 02:30:41"
+            ]);
     }
 
     /**

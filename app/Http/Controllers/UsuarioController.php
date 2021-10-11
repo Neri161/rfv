@@ -55,6 +55,8 @@ class UsuarioController extends Controller
         } else {
             if($usuario->rol_id == 1)
             return redirect()->route('admin.inicio');
+            if($usuario->rol_id == 2)
+                return redirect()->route('usuario.inicio');
         }
     }
 
@@ -80,7 +82,7 @@ class UsuarioController extends Controller
 
     public function inicio()
     {
-        return view('iniciouser');
+        return view('user.inicioUser');
     }
 
     public function cerrarSesion()
