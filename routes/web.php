@@ -39,6 +39,7 @@ Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::post('/registroForm',[AdminController::class,'registroForm'])->name('registro.form');
     Route::post('/RegistroFormG',[AdminController::class,'gerenciaForm'])->name('gerencia.form');
     Route::get('/usuario/{texto?}',[AdminController::class,'usuario'])->name('admin.usuario');
+    Route::get('/usuario2/{texto?}',[AdminController::class,'usuario2'])->name('admin.usuario2');
     Route::get('datosUsuario',[AdminController::class, 'datosUsuario'])->name('admin.datosusuario');
     Route::get('/RegistrarGerencia',[AdminController::class,'vistaRegistrarGerencia'])->name('admin.gerencia');
     Route::get('/listaGerencias',[AdminController::class,'listaGerencias'])->name('admin.listagerencias');

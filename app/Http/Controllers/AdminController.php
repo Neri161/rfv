@@ -40,6 +40,22 @@ class AdminController extends Controller
             return json_encode(["estatus" => "success", "mensaje" => "No existe"]);
         else
             return json_encode(["estatus" => "error", "mensaje" => "Si existe"]);
+
+    }
+    public function usuario2($texto)
+    {
+        $usuario = Usuario::where("usuario", $texto)->first();
+        if (!$usuario) {
+            return json_encode(["estatus" => "success", "mensaje" => "No existe"]);
+        }
+        else {
+            if ($usuario->id == session('usuario')->id) {
+                return json_encode(["estatus" => "success", "mensaje" => "No existe"]);
+            }
+            else {
+                return json_encode(["estatus" => "error", "mensaje" => "Si existe"]);
+            }
+        }
     }
 
     public function listaGerencias()
