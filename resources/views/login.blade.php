@@ -39,10 +39,10 @@
                             @endif
                         @endif
                         <div class="form-group">
-                            <label for="correo">Correo:</label>
+                            <label for="correo">Correo o Usuario:</label>
                             <div class="input-group flex-nowrap">
-                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-at"></i></span>
-                                <input type="text" name="correo" id="correo" class="form-control" placeholder="correo"
+                                <span class="input-group-text" id="addon-wrapping"><i class="fas fa-user-friends"></i></span>
+                                <input type="text" name="correo" id="correo" class="form-control" placeholder="Correo o Usuario"
                                        aria-label="correo" aria-describedby="addon-wrapping">
                             </div>
                         </div>
