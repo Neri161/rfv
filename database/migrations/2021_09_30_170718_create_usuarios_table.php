@@ -37,7 +37,7 @@ class CreateUsuariosTable extends Migration
         });
         DB::table("usuarios")
             ->insert([
-                "nombre" => "root",
+                "nombre" => "Root",
                 "paterno" => "admin",
                 "materno" => "admin",
                 "usuario" => "admin",
