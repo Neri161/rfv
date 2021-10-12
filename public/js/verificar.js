@@ -4,6 +4,7 @@ $(document).ready(function () {
         var nombre = $("#nombre").val();
         var paterno = $("#paterno").val();
         var materno = $("#materno").val();
+        var usuario = $("#usuario").val();
         var correo = $("#correo").val();
         var pass1 = $("#pass1").val();
         var pass2 = $("#pass2").val();
@@ -72,8 +73,23 @@ $(document).ready(function () {
             return false;
         }
         if (!(mayus.test(pass1) && lower.test(pass1) && len.test(pass1))) {
-            alert("La contraseña no es segura");
+            Swal.fire({
+                //error
+                type: 'error',
+                title: 'Error',
+                text: '¡Las contraseñas no son es Segura!',
+            });
             $("#pass1").focus();
+            return false;
+        }
+        if (usuario == "" || usuario==null){
+            Swal.fire({
+                //error
+                type: 'error',
+                title: 'Error',
+                text: '¡Ingresar el Usuario!',
+            });
+            $("#usuario").focus();
             return false;
         }
     });

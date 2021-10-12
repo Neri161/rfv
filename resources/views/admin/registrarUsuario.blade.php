@@ -5,7 +5,7 @@
 @endsection
 
 @section('CSS')
-    <link rel="stylesheet" href="style.css">
+
 @endsection
 
 @section('contenido')
@@ -33,7 +33,7 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 <input type="text" name="paterno" class="form-control"
-                                       placeholder="Ingresa Apellido Paterno">
+                                       placeholder="Ingresa Apellido Paterno" id="paterno">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -41,7 +41,7 @@
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 <input type="text" name="materno" class="form-control"
-                                       placeholder="Ingresa Apellido Materno">
+                                       placeholder="Ingresa Apellido Materno" id="materno">
 
                             </div>
                         </div>
@@ -53,7 +53,7 @@
                             <label for="nombre">Nombre:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
-                                <input type="text" name="nombre" class="form-control" placeholder="Ingresa Nombre">
+                                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Ingresa Nombre">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -64,13 +64,12 @@
                                        placeholder="Ingresa Usuario">
                                 <!--<span> id="estadoUsuario</span>-->
                             </div>
-                            <p><img src="LoaderIcon.gif" id="loaderIcon" style="display:none"/></p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <label for="nombre">Rol:</label>
-                            <select class="browser-default custom-select" name="rol">
+                            <select class="browser-default custom-select" name="rol" id="rol">
                                 <option selected="">Selecciona El Rol</option>
                                 @foreach($rol as $roles)
                                     <option value="{{$roles->id}}">{{$roles->rol}}</option>
@@ -79,7 +78,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="nombre">Gerencia:</label>
-                            <select class="browser-default custom-select" name="gerencia">
+                            <select class="browser-default custom-select" name="gerencia" id="gerencia">
                                 <option selected="">Selecciona El Area De Gerencia</option>
                                 @foreach($gerencia as $gerencias)
                                     <option value="{{$gerencias->id}}">{{$gerencias->gerencia}}</option>
@@ -92,7 +91,7 @@
                             <label for="correo" class="mtop16">Correo:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1">@</span>
-                                <input type="email" name="correo" class="form-control" placeholder="Ingresa Correo">
+                                <input type="email" id="correo" name="correo" class="form-control" placeholder="Ingresa Correo">
                             </div>
                         </div>
                     </div>
@@ -122,7 +121,7 @@
                         <div class="col-md-4 text-center ">
                         </div>
                         <div class="col-md-12 text-center ">
-                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"> Registrar
+                            <button type="submit" id="btnRegistrar" class=" btn btn-block mybtn btn-primary tx-tfm"> Registrar
                             </button>
                         </div>
                         <div class="col-md-3 text-center ">
@@ -139,6 +138,10 @@
 @endsection
 
 @section('js')
+    <script src="/js/jquery.min.js"></script>
+    <script src="/popper/popper.min.js"></script>
+    <!--    Plugin sweet Alert 2  -->
+    <script src="/plugins/sweetAlert2/sweetalert2.all.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $("#usuario").on("keyup", function () {
@@ -189,4 +192,5 @@
             }
         }
     </script>
+    <script src="/js/verificar.js"></script>
 @endsection
