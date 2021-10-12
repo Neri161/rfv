@@ -68,6 +68,9 @@ class AdminController extends Controller
     {
         $roles = Rol::all();
         $gerencias = Gerencia::all();
+        $usuario = Usuario::where("usuario", $datos->usuario)->first();
+        if (!$usuario)
+            return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El usuario existe!", "rol" => $roles, "gerencia" => $gerencias]);
 
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!", "rol" => $roles, "gerencia" => $gerencias]);
