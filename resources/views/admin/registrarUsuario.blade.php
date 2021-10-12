@@ -4,7 +4,8 @@
     <title>Registrar Gerencias</title>
 @endsection
 
-@section('css')
+@section('CSS')
+    <link rel="stylesheet" href="style.css">
 @endsection
 
 @section('contenido')
@@ -41,6 +42,7 @@
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
                                 <input type="text" name="materno" class="form-control"
                                        placeholder="Ingresa Apellido Materno">
+
                             </div>
                         </div>
 
@@ -99,14 +101,20 @@
                             <label for="password1" class="mtop16">Contraseña:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
-                                <input type="password" name="pass1" class="form-control" placeholder="Ingresa Contraseña">
+                                <input type="password" name="pass1" id="pass1" class="form-control" placeholder="Ingresa Contraseña">
+                                <div class="input-group-append">
+                                    <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword1()"><span class="fa fa-eye-slash icon"></span></button>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6 ">
                             <label for="password2" class="mtop16">Confirmar Contraseña:</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
-                                <input type="password" name="pass2" class="form-control" placeholder="Ingresa Contraseña ">
+                                <input type="password" name="pass2" class="form-control" id="pass2" placeholder="Ingresa Contraseña ">
+                                <div class="input-group-append">
+                                    <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword2()"><span class="fa fa-eye-slash icon"></span></button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -131,6 +139,7 @@
 @endsection
 
 @section('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
         $("#usuario").on("keyup", function () {
             var texto = $("#usuario").val();
@@ -157,5 +166,27 @@
                 }
             });
         });
+    </script>
+    <script type="text/javascript">
+        function mostrarPassword1(){
+            var cambio = document.getElementById("pass1");
+            if(cambio.type == "password"){
+                cambio.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            }else{
+                cambio.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
+        function mostrarPassword2(){
+            var cambio = document.getElementById("pass2");
+            if(cambio.type == "password"){
+                cambio.type = "text";
+                $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+            }else{
+                cambio.type = "password";
+                $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+            }
+        }
     </script>
 @endsection

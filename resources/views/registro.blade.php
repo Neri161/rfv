@@ -17,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
@@ -77,6 +78,9 @@
                                 <span class="input-group-text" id="addon-wrapping"><i class="fas fa-lock"></i></span>
                                 <input type="password" name="pass1" id="pass1" class="form-control"
                                        placeholder="Ingresa Contraseña" aria-label="password" aria-describedby="password">
+                                <div class="input-group-append">
+                                    <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -110,6 +114,6 @@
 <script src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 <script src="js/login.js"></script>
 <script src="js/verificar.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 </html>
