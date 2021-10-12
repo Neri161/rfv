@@ -60,7 +60,6 @@ class UsuarioController extends Controller
         }
     }
 
-
     public function recuperarContrasenia(Request $datos)
     {
         if (!$datos->correo)
@@ -101,7 +100,7 @@ class UsuarioController extends Controller
         $usuario = Usuario::where('token_recovery', $datos->codigo)->first();
 
         if (!$usuario)
-            return view("codigo", ["estatus" => "error", "mensaje" => "¡Error en el codigo"]);
+            return view("codigo", ["estatus" => "error", "mensaje" => "¡Error en el codigo!"]);
 
         return view("contrasenia", ["codigo" => $datos->codigo]);
     }
@@ -121,4 +120,5 @@ class UsuarioController extends Controller
 
         return redirect()->route('login');
     }
+
 }
