@@ -9,34 +9,38 @@
 @endsection
 
 @section('contenido')
-    <link rel="stylesheet" href="css/login.css">
+ 
+<div class="col-md-12 text-center ">
+    <img class="img-profile rounded-circle" src="/img/undraw_profile.svg" width="200" >
+  
 
+</div>
 
-    <div class="inside">
+    <div class="inside">    
         <div class="row">
-            <div class="col-md-3 text-center ">
+            <div class="col-md-3 text-center ">      
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">TUS DATOS</label>
+                    <br>
 
-                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" disabled="true">
-
-                        ID: {{session('usuario')->id}}
-                        Nombre(s): {{session('usuario')->nombre}}
-                        Apellido paterno: {{session('usuario')->paterno}}
-                        Apellido materno: {{session('usuario')->materno}}
-                        Usuario: {{session('usuario')->usuario}}
-                        Correo: {{session('usuario')->correo}}
-                      </textarea>
-
+                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" disabled="true">
+                      
+                        ID: {{session('usuario')->id}} 
+                        Nombre: {{session('usuario')->nombre}} {{session('usuario')->paterno}} {{session('usuario')->materno}} 
+                        Usuario: {{session('usuario')->usuario}} 
+                        Correo: {{session('usuario')->correo}}  
+                      
+                       
+                      </textarea>     
+                  
                 </div>
-                <a  href="{{route('admin.editarusuario')}}" class="btn btn-primary btn-lg btn-block">  Editar perfil  </a>
-
+              <a  href="{{route('usuario.editarusuario')}}" class="btn btn-primary btn-lg btn-block">  Editar perfil  </a>
+                  
             </div>
-        </div>
-
-
+        </div>          
+    
+       
     </div>
 @endsection
 

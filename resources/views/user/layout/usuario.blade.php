@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,34 +29,30 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.inicio')}}">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('usuario.inicio')}}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-laugh-wink"></i>
             </div>
             <div class="sidebar-brand-text mx-3">Refividrio</div>
         </a>
 
+        
+
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="{{route('admin.inicio')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+            <a class="nav-link" href="{{route('usuario.inicio')}}">
+                <i class="fa fa-home"></i>
                 <span>Inicio</span></a>
         </li>
 
-
-        <!-- Heading
-        <div class="sidebar-heading">
-            Cursos
-        </div>
-        -->
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
+                <i class="fa fa-file"></i>
                 <span>Cursos</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -76,19 +70,16 @@
         </li>
 
         <!-- Nav Item - Charts
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-chart-area"></i>
-                <span>Charts</span></a>
-        </li>
-        Nav Item - Tables
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fas fa-fw fa-table"></i>
-                <span>Tables</span></a>
-        </li>
-        -->
+
         <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            Interface
+        </div>
+
+        
         <hr class="sidebar-divider d-none d-md-block">
 
         <!-- Sidebar Toggler (Sidebar) -->
@@ -96,13 +87,13 @@
             <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
 
-        <!-- Sidebar Message
+        <!-- Sidebar Message -->
         <div class="sidebar-card d-none d-lg-flex">
             <img class="sidebar-card-illustration mb-2" src="/img/undraw_rocket.svg" alt="...">
             <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and
                 more!</p>
             <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-        </div>-->
+        </div>
 
     </ul>
     <!-- End of Sidebar -->
@@ -170,17 +161,17 @@
                             <span
                                 class="mr-2 d-none d-lg-inline text-gray-600 small">{{session('usuario')->nombre}} {{session('usuario')->paterno}}</span>
                             <img class="img-profile rounded-circle"
-                                 src="{{session('usuario')->foto}}">
+                                 src="/img/undraw_profile.svg">
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{route('admin.datosusuario')}}">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                            <a class="dropdown-item" href="{{route('usuario.datosusuario')}}">
+                                <i class="fa fa-user text-gray-400"></i>
                                 Perfil
                             </a>
-                            <a class="dropdown-item" href="{{route('admin.editarusuario')}}">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                            <a class="dropdown-item" href="{{route('usuario.editarusuario')}}">
+                                <i class="fa fa-cog text-gray-400"></i>
                                 Editar perfil
                             </a>
 
@@ -196,10 +187,11 @@
 
             </nav>
             <!-- End of Topbar -->
+            
 
             <!-- Begin Page Content -->
             <div class="container-fluid text-dark">
-                @yield('contenido')
+                @yield('contenido');
             </div>
             <!-- /.container-fluid -->
 
@@ -238,7 +230,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Selecciona Salir Para Cerras Sesión</div>
+            <div class="modal-body">Selecciona Salir Para Cerrar Sesión</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                 <a class="btn btn-primary" href="{{route('cerrar.sesion')}}">Salir</a>

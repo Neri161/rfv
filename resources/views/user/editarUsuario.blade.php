@@ -13,7 +13,7 @@
 
 
     <!--  Formulario editar usuario -->
-    <form action="{{route('edit.form')}}" method="post" name="registration">
+    <form action="{{route('edit.forms')}}" method="post" name="registration">
         {{csrf_field()}}
         @csrf @method('PATCH')
         @if(isset($estatus))
@@ -120,7 +120,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             type: "get",
-            url:"{{route('admin.usuario')}}/"+texto,
+            url:"{{route('usuario.usuario')}}/"+texto,
             dataType: 'json',
             cache: false,
             success: function (data) {

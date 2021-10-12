@@ -32,6 +32,10 @@ Route::post('/cambio/codigo', [UsuarioController::class, 'cambio'])->name('cambi
 
 Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function () {
     Route::get('/inicio', [UsuarioController::class, 'inicio'])->name('usuario.inicio');
+    Route::get('datosUsuario',[UsuarioController::class, 'datosUsuario'])->name('usuario.datosusuario');//vista
+    Route::get('/EditarUsuario', [UsuarioController::class, 'editarUsuario'])->name('usuario.editarusuario');//vista
+    Route::patch('/editForm',[UsuarioController::class,'editUsuario'])->name('edit.forms'); //controlador
+    Route::get('/usuario/{texto?}',[UsuarioController::class,'usuario'])->name('usuario.usuario');
 });
 Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/inicio', [AdminController::class, 'inicio'])->name('admin.inicio');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Rol;
+use App\Models\Gerencia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -11,6 +13,7 @@ use Illuminate\Support\Facades\Mail;
 
 class UsuarioController extends Controller
 {
+    
     public function bienvenida()
     {
         return view('bienvenida');
@@ -29,6 +32,28 @@ class UsuarioController extends Controller
     public function recuperar()
     {
         return view('recuperar');
+    }
+    
+    public function datosUsuario()
+    {
+        
+        $usuario = Usuario::all();
+        return view('user.datosUsuario', ['usuario' => $usuario]);
+    }
+
+    public function editarUsuario()
+    {
+        $roles = Rol::all();
+        return view('user.editarUsuario', ['rol' => $roles]);
+    }
+
+    public function usuario($texto)
+    {
+        $usuario = Usuario::where("usuario", $texto)->first();
+        if (!$usuario)
+            return json_encode(["estatus" => "success", "mensaje" => "No existe"]);
+        else
+            return json_encode(["estatus" => "error", "mensaje" => "Si existe"]);
     }
 
     public function verificarCredenciales(Request $datos)
@@ -119,6 +144,26 @@ class UsuarioController extends Controller
         $usuario->token_recovery = null;
         $usuario->save();
 
+        return redirect()->route('login');
+    }
+
+    
+    //actulizar datos de usuario
+    public function editUsuario(Request $datos)
+    {
+        if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
+            return view("usuario.editarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
+        $usuario = Usuario::where('correo', $datos->correo)->first();
+        if ($usuario)
+            return view("usuario.editarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
+        if ($datos->pass1 != $datos->pass2)
+            return view("usuario.editarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!"]);
+
+        $usuario = Usuario::where('id', session('usuario')->id)->first();
+        $usuario->usuario = $datos->usuario;
+        $usuario->correo = $datos->correo;
+        $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
+        $usuario->save();
         return redirect()->route('login');
     }
 }

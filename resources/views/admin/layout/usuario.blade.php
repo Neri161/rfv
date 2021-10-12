@@ -44,7 +44,7 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
             <a class="nav-link" href="{{route('admin.inicio')}}">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fa fa-home"></i>
                 <span>Inicio</span></a>
         </li>
 
@@ -66,11 +66,11 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <!--  <h6 class="collapse-header">Custom Components:</h6>-->
                     <a class="collapse-item" href="{{route('admin.registrousuario')}}"><i class="fas fa-users"></i>
-                        Usuario</a>
+                       Agregar Usuario</a>
                     <a class="collapse-item" href="{{route('admin.gerencia')}}"><i class="fas fa-user-tie"></i>
-                        Gerencias</a>
-                    <a class="collapse-item" href="{{route('admin.gerencia')}}"><i class="fas fa-user-tie"></i>
-                        Registrar Curso</a>
+                       Agregar Gerencia</a>
+                    <a class="collapse-item" href="{{route('admin.gerencia')}}"><i class="fa fa-file"></i>
+                       Agregar Curso</a>
                 </div>
             </div>
         </li>
@@ -79,7 +79,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-table"></i>
+                <i class="fa fa-list-ol"></i>
                 <span>Consultar listas</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -109,7 +109,7 @@
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
+                <i class="fa fa-file"></i>
                 <span>Cursos</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
@@ -227,11 +227,11 @@
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                              aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="{{route('admin.datosusuario')}}">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Perfil
                             </a>
                             <a class="dropdown-item" href="{{route('admin.editarusuario')}}">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <i class="fa fa-cog text-gray-400"></i>
                                 Editar perfil
                             </a>
 
@@ -289,7 +289,7 @@
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
-            <div class="modal-body">Selecciona Salir Para Cerras Sesión</div>
+            <div class="modal-body">Selecciona Salir Para Cerrar Sesión</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
                 <a class="btn btn-primary" href="{{route('cerrar.sesion')}}">Salir</a>
