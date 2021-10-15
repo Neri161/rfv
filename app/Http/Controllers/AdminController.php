@@ -13,26 +13,22 @@ class AdminController extends Controller
     {
         return view('admin.inicioadmin');
     }
-
     public function registroUsuario()
     {
         $roles = Rol::all();
         $gerencias = Gerencia::all();
         return view('admin.registrarUsuario', ['rol' => $roles, "gerencia" => $gerencias]);
     }
-
     public function datosUsuario()
     {
         $usuario = Usuario::all();
         return view('admin.datosUsuario', ['usuario' => $usuario]);
     }
-
     public function editarUsuario()
     {
         $roles = Rol::all();
         return view('admin.editarUsuario', ['rol' => $roles]);
     }
-
     public function usuario($texto)
     {
         $usuario = Usuario::where("usuario", $texto)->first();
@@ -57,13 +53,11 @@ class AdminController extends Controller
             }
         }
     }
-
     public function listaGerencias()
     {
         $gerencia = Gerencia::all();
         return view('admin.listaGerencias', ['gerencia' => $gerencia]);
     }
-
     public function registroForm(Request $datos)
     {
         $roles = Rol::all();
@@ -78,7 +72,6 @@ class AdminController extends Controller
 
         if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!", "rol" => $roles, "gerencia" => $gerencias]);
-
 
         if ($datos->pass1 != $datos->pass2)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡Las contraseñas no son iguales!", "rol" => $roles, "gerencia" => $gerencias]);
@@ -97,7 +90,6 @@ class AdminController extends Controller
         $usuario->save();
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!", "rol" => $roles, "gerencia" => $gerencias]);
     }
-
     //actulizar datos de usuario
     public function editForm(Request $datos)
     {
@@ -116,12 +108,10 @@ class AdminController extends Controller
         $usuario->save();
         return redirect()->route('login');
     }
-
     public function vistaRegistrarGerencia()
     {
         return view('admin.registrarGerencia');
     }
-
     public function gerenciaForm(Request $datos)
     {
         if (!$datos->gerencia)
@@ -138,7 +128,6 @@ class AdminController extends Controller
 
         return view("admin.registrarGerencia", ["estatus" => "success", "mensaje" => "¡Gerencia Registrada!"]);
     }
-
     public function listaUsuario()
     {
         $usuarios = Usuario::all();
