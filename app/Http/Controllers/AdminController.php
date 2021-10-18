@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use App\Models\Rol;
 use App\Models\Gerencia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
@@ -21,8 +22,7 @@ class AdminController extends Controller
     }
     public function datosUsuario()
     {
-        $usuario = Usuario::all();
-        return view('admin.datosUsuario', ['usuario' => $usuario]);
+        return view('admin.datosUsuario');
     }
     public function editarUsuario()
     {
@@ -63,7 +63,7 @@ class AdminController extends Controller
         $roles = Rol::all();
         $gerencias = Gerencia::all();
         $usuario = Usuario::where("usuario", $datos->usuario)->first();
-        if (!$usuario)
+        if ($usuario)
             return view("admin.registrarUsuario", ["estatus" => "error", "mensaje" => "¡El usuario existe!", "rol" => $roles, "gerencia" => $gerencias]);
 
         if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
@@ -93,8 +93,6 @@ class AdminController extends Controller
     //actulizar datos de usuario
     public function editForm(Request $datos)
     {
-        if (!$datos->correo || !$datos->pass1 || !$datos->pass2)
-            return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡Falta informaciónnn!"]);
         $usuario = Usuario::where('correo', $datos->correo)->first();
         if ($usuario)
             return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡El correo ya se encuentra registrado!"]);
@@ -103,10 +101,13 @@ class AdminController extends Controller
 
         $usuario = Usuario::where('id', session('usuario')->id)->first();
         $usuario->usuario = $datos->usuario;
-        $usuario->correo = $datos->correo;
         $usuario->password = password_hash($datos->pass1, PASSWORD_DEFAULT, ['cost' => 5]);
+        if (Session::has('usuario'))
+            Session::forget('usuario');
+        Session::put('usuario', $usuario);
+        session('usuario')->foto=$datos->img;
         $usuario->save();
-        return redirect()->route('login');
+        return redirect()->route('admin.datosusuario');
     }
     public function vistaRegistrarGerencia()
     {

@@ -32,7 +32,7 @@ Route::post('/cambio/codigo', [UsuarioController::class, 'cambio'])->name('cambi
 
 Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function () {
     Route::get('/inicio', [UsuarioController::class, 'inicio'])->name('usuario.inicio');
-    Route::get('datosUsuario',[UsuarioController::class, 'datosUsuario'])->name('usuario.datosusuario');//vista
+    Route::get('/Perfil',[UsuarioController::class, 'datosUsuario'])->name('usuario.datosusuario');//vista
     Route::get('/EditarUsuario', [UsuarioController::class, 'editarUsuario'])->name('usuario.editarusuario');//vista
     Route::patch('/editForm',[UsuarioController::class,'editUsuario'])->name('edit.forms'); //controlador
     Route::get('/usuario/{texto?}',[UsuarioController::class,'usuario'])->name('usuario.usuario');
@@ -44,7 +44,7 @@ Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::post('/RegistroFormG',[AdminController::class,'gerenciaForm'])->name('gerencia.form');
     Route::get('/usuario/{texto?}',[AdminController::class,'usuario'])->name('admin.usuario');
     Route::get('/usuario2/{texto?}',[AdminController::class,'usuario2'])->name('admin.usuario2');
-    Route::get('datosUsuario',[AdminController::class, 'datosUsuario'])->name('admin.datosusuario');
+    Route::get('/Perfil',[AdminController::class, 'datosUsuario'])->name('admin.datosusuario');
     Route::get('/RegistrarGerencia',[AdminController::class,'vistaRegistrarGerencia'])->name('admin.gerencia');
     Route::get('/listaGerencias',[AdminController::class,'listaGerencias'])->name('admin.listagerencias');
     Route::get('/EditarUsuario', [AdminController::class, 'editarUsuario'])->name('admin.editarusuario');

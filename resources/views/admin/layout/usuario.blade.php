@@ -243,7 +243,7 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid text-dark">
-                @yield('contenido');
+                @yield('contenido')
             </div>
             <!-- /.container-fluid -->
 

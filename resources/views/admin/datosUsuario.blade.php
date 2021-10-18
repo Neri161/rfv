@@ -1,43 +1,36 @@
 @extends('admin.layout.usuario')
 
 @section('titulo')
-    <title>Inicio</title>
+    <title>Perfil De Usuario</title>
 @endsection
 
-@section('css')
+@section('CSS')
+    <style>
 
+    </style>
 @endsection
 
 @section('contenido')
 
-<div class="col-md-12 text-center ">
-    <img class="img-profile rounded-circle" src="{{session('usuario')->foto}}" width="200" >
-</div>
-
-    <div class="inside">
-        <div class="row">
-            <div class="col-md-3 text-center ">
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <br>
-
-                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="8" disabled="true">
-
-                        ID: {{session('usuario')->id}}
-                        Nombre: {{session('usuario')->nombre}} {{session('usuario')->paterno}} {{session('usuario')->materno}}
-                        Usuario: {{session('usuario')->usuario}}
-                        Correo: {{session('usuario')->correo}}
-                      </textarea>
-
-                </div>
-              <a  href="{{route('admin.editarusuario')}}" class="btn btn-primary btn-lg btn-block">  Editar perfil  </a>
-
-            </div>
+    <div class="container-fluid border">
+        <div class="row button-container">
+            <img class="img-fluid rounded-circle img-thumbnail mx-auto d-block" src="{{session('usuario')->foto}}"
+                 width="150">
         </div>
+        <h3 class="text-center">{{session('usuario')->nombre}} {{session('usuario')->paterno}} {{session('usuario')->materno}}</h3>
+    <dvi class="row col-md-12 border" style="margin-bottom: 3px;">
+        Nombre: {{session('usuario')->nombre}} {{session('usuario')->paterno}} {{session('usuario')->materno}}
+        <br>
+        Usuario: {{session('usuario')->usuario}}
+        <br>
+        Correo: {{session('usuario')->correo}}
+        <br>
 
-
+    </dvi>
+        <a  href="{{route('admin.editarusuario')}}" class="btn btn-primary btn-lg btn-block">  Editar perfil  </a>
     </div>
+
+
 @endsection
 
 @section('js')
