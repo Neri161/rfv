@@ -31,11 +31,49 @@
             <div class="inside">
                 <div class="row">
                     <div class="col-md-12">
-                        <label for="correo" class="mtop16">Gerencia:</label>
+                        <label for="titulo" class="mtop16">Titulo:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="gerencia" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                            <input type="text" name="titulo" class="form-control" placeholder="Ingresa nombre de  Gerencia">
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="url" class="mtop16">Url:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
+                            <input type="text" name="url" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="descripcion" class="mtop16">Descripcion:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
+                            <input type="text" name="descripcion" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="miniatura" class="mtop16">Miniatura:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
+                            <input type="text" name="miniatura" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="nombre">Gerencia:</label>
+                        <select class="browser-default custom-select" name="gerencia" id="gerencia">
+                            <option selected="">Selecciona El Area De Gerencia</option>
+                            @foreach($gerencia as $gerencias)
+                                <option value="{{$gerencias->id}}">{{$gerencias->gerencia}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="row">

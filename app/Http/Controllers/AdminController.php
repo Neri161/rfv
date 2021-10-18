@@ -115,7 +115,8 @@ class AdminController extends Controller
     }
     public function vistaRegistrarCurso()
     {
-        return view('admin.registrarCurso');
+        $gerencias = Gerencia::all();
+        return view('admin.registrarCurso',[ "gerencia" => $gerencias]);
     }
     public function gerenciaForm(Request $datos)
     {
