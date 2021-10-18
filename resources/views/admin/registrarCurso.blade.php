@@ -9,9 +9,6 @@
 @endsection
 
 @section('contenido')
-    <link rel="stylesheet" href="css/login.css">
-
-
     <!--  Formulario registrar usuario -->
     <form action="{{route('gerencia.form')}}" method="post" name="registration">
         {{csrf_field()}}
