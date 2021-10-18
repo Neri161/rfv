@@ -69,7 +69,7 @@
                        Agregar Usuario</a>
                     <a class="collapse-item" href="{{route('admin.gerencia')}}"><i class="fas fa-user-tie"></i>
                        Agregar Gerencia</a>
-                    <a class="collapse-item" href="{{route('admin.gerencia')}}"><i class="fa fa-file"></i>
+                    <a class="collapse-item" href="{{route('admin.curso')}}"><i class="fa fa-file"></i>
                        Agregar Curso</a>
                 </div>
             </div>

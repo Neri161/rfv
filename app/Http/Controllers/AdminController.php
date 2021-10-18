@@ -113,6 +113,10 @@ class AdminController extends Controller
     {
         return view('admin.registrarGerencia');
     }
+    public function vistaRegistrarCurso()
+    {
+        return view('admin.registrarCurso');
+    }
     public function gerenciaForm(Request $datos)
     {
         if (!$datos->gerencia)

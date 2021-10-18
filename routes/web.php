@@ -46,6 +46,7 @@ Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/usuario2/{texto?}',[AdminController::class,'usuario2'])->name('admin.usuario2');
     Route::get('/Perfil',[AdminController::class, 'datosUsuario'])->name('admin.datosusuario');
     Route::get('/RegistrarGerencia',[AdminController::class,'vistaRegistrarGerencia'])->name('admin.gerencia');
+    Route::get('/RegistrarCurso',[AdminController::class,'vistaRegistrarCurso'])->name('admin.curso');
     Route::get('/listaGerencias',[AdminController::class,'listaGerencias'])->name('admin.listagerencias');
     Route::get('/EditarUsuario', [AdminController::class, 'editarUsuario'])->name('admin.editarusuario');
     Route::patch('/editForm',[AdminController::class,'editForm'])->name('edit.form'); //ruta cambiar datos usuario
