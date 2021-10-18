@@ -127,11 +127,6 @@
                         <div class="col-md-3 text-center ">
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-3 ">
-                            <label for="password2" class="mtop16"></label>
-                        </div>
-                    </div>
                 </div>
         </div>
     </form>

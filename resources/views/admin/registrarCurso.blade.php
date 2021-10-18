@@ -43,7 +43,7 @@
                         <label for="url" class="mtop16">Url:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="url" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                            <input type="text" name="url" class="form-control" placeholder="Ingresa la url">
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         <label for="descripcion" class="mtop16">Descripcion:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="descripcion" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                            <input type="text" name="descripcion" class="form-control" placeholder="Ingresa la Descripcion">
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,7 @@
                         <label for="miniatura" class="mtop16">Miniatura:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="miniatura" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                            <input type="text" name="miniatura" class="form-control" placeholder="Ingresa Miniatura">
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 text-center ">
-                        <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"> Registrar
+                        <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" style="margin-top: 10px;"> Registrar
                         </button>
                     </div>
                     <div class="col-md-3 text-center ">
