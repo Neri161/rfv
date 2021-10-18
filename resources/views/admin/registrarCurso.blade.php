@@ -76,9 +76,9 @@
                         </select>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row form-control">
                     <div class="col-md-12 text-center ">
-                        <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm" style="margin-top: 10px;"> Registrar
+                        <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"> Registrar
                         </button>
                     </div>
                     <div class="col-md-3 text-center ">
