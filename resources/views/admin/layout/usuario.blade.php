@@ -94,6 +94,9 @@
                         Lista Usuarios</a>
                     <a class="collapse-item" href="{{route('admin.listagerencias')}}"><i class="fas fa-user-tie"></i>
                         Lista de Gerencias</a>
+
+                        <a class="collapse-item" href="{{route('admin.Mostrarvideos')}}"><i class="fas fa-user-tie"></i>
+                            videos</a>
                 </div>
             </div>
         </li>

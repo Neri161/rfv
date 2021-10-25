@@ -53,4 +53,6 @@ Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/ListaUsuariosActivos',[AdminController::class,'listaUsuario'])->name('list.user');
     Route::get('/ElminarUsuario/{id?}',[AdminController::class,'eliminarUsuario'])->name('eliminarUsuario');
     Route::get('/ActivarUsuario/{id?}',[AdminController::class,'activarUsuario'])->name('activarUsuario');
+    Route::get('/videos',[AdminController::class,'videos'])->name('admin.Mostrarvideos');
+    Route::get('/video',[AdminController::class,'video'])->name('admin.video');
 });

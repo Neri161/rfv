@@ -173,4 +173,12 @@ class AdminController extends Controller
             return json_encode(["estatus" => "error", "mensaje" => "Hubo un error"]);
         }
     }
+
+    public function videos(){
+        return view('admin.Mostrarvideos');
+    }
+    public function video(){
+        return view('admin.Mostrarvideo');
+    }
+    
 }
