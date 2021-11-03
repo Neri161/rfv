@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use App\Models\Rol;
 use App\Models\Gerencia;
+use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -180,5 +181,18 @@ class AdminController extends Controller
     public function video(){
         return view('admin.Mostrarvideo');
     }
-    
+    public function curso(Request $datos){
+        $gerencias = Gerencia::all();
+        if (!$datos->titulo || !$datos->url)
+            return view('admin.registrarCurso',["estatus" => "error", "mensaje"=>"Falta Informacion","gerencia"=>$gerencias]);
+
+        $curso = new Curso();
+        $curso->Titulo = $datos->titulo;
+        $curso->url = $datos->url;
+        $curso->descripcion = $datos->descripcion;
+        $curso->gerencia_id = $datos->gerencia;
+        $curso->save();
+        return view('admin.registrarCurso',["estatus" => "success", "mensaje"=>"Curso Registrado","gerencia"=>$gerencias]);
+    }
+
 }

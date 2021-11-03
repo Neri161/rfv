@@ -10,7 +10,7 @@
 
 @section('contenido')
     <!--  Formulario registrar usuario -->
-    <form action="{{route('gerencia.form')}}" method="post" name="registration">
+    <form action="{{route('curso.form')}}" method="post" name="registration">
         {{csrf_field()}}
         @if(isset($estatus))
             @if($estatus == "success")
@@ -50,15 +50,6 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
                             <input type="text" name="descripcion" class="form-control" placeholder="Ingresa la Descripcion">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <label for="miniatura" class="mtop16">Miniatura:</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="miniatura" class="form-control" placeholder="Ingresa Miniatura">
                         </div>
                     </div>
                 </div>

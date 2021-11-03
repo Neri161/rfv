@@ -40,6 +40,7 @@ Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function () {
 Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/inicio', [AdminController::class, 'inicio'])->name('admin.inicio');
     Route::get('/RegistrarUsuario', [AdminController::class, 'registroUsuario'])->name('admin.registrousuario');
+    Route::post('/RegistrarCursoForm', [AdminController::class, 'curso'])->name('curso.form');
     Route::post('/registroForm',[AdminController::class,'registroForm'])->name('registro.form');
     Route::post('/RegistroFormG',[AdminController::class,'gerenciaForm'])->name('gerencia.form');
     Route::get('/usuario/{texto?}',[AdminController::class,'usuario'])->name('admin.usuario');
