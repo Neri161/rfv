@@ -1,7 +1,7 @@
 @extends('admin.layout.usuario')
 
 @section('titulo')
-    <title>videos</title>
+    <title>Cursos</title>
 @endsection
 
 @section('CSS')
@@ -14,7 +14,7 @@
 <link href="/visew/css/nice-select.css" rel="stylesheet" type="text/css">
 <link href="/visew/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
 <link href="/visew/css/themify-icons.css" rel="stylesheet" type="text/css">
-    
+
 @endsection
 
 @section('contenido')
@@ -33,17 +33,17 @@
 
                                 <!-- Post Content -->
                                 <div class="post-content" >
-                                    
+
                                     <a href="{{route('admin.video')}}" class="post-title">Reunification of migrant toddlers, parents should be completed Thursday</a>
-                                   
+
                                 </div>
 
                                 <!-- Video Duration -->
                                 <span class="video-duration">05.03</span>
                             </div>
                         </div>
-                        
-                      
+
+
 
                     </div>
                 </div>
@@ -286,7 +286,7 @@
     <section class="vizew-post-area mb-50">
         <div class="container">
             <div class="row">
-            
+
                 <div class="col-12 col-md-5 col-lg-4">
                     <div class="sidebar-area">
 
@@ -304,10 +304,10 @@
     </section>
     <!-- ##### Vizew Psot Area End ##### -->
 
-    
+
     </footer>
-   
-    
+
+
 @endsection
 
 @section('js')

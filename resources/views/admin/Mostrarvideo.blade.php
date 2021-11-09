@@ -1,7 +1,7 @@
 @extends('admin.layout.usuario')
 
 @section('titulo')
-    <title>videos</title>
+    <title>Curso | </title>
 @endsection
 
 @section('CSS')
@@ -14,13 +14,13 @@
 <link href="/visew/css/nice-select.css" rel="stylesheet" type="text/css">
 <link href="/visew/css/owl.carousel.min.css" rel="stylesheet" type="text/css">
 <link href="/visew/css/themify-icons.css" rel="stylesheet" type="text/css">
-     
+
 @endsection
 
-@section('contenido') 
+@section('contenido')
     <!-- ##### Pager Area Start ##### -->
     <div class="vizew-pager-area">
-    
+
         <div class="vizew-pager-next">
             <p>NEXT ARTICLE</p>
 
