@@ -82,12 +82,10 @@
                     cache: false,
                     success: function (data) {
                         if (data.estatus == "success") {
-                            alert(this.url);
                             location.reload();
                         } else {
                             alert(data.mensaje);
                         }
-
                     }
                 });
             });
@@ -107,7 +105,6 @@
                         } else {
                             alert(data.mensaje);
                         }
-
                     }
                 });
             });
