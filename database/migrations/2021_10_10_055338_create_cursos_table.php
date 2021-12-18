@@ -20,6 +20,7 @@ class CreateCursosTable extends Migration
             $table->text('url');
             $table->text('descripcion');
             $table->unsignedBigInteger('gerencia_id')->nullable();
+            $table->text('miniatura');
             $table->timestamps();
             $table->foreign('gerencia_id')->references('id')->on('gerencias')->onDelete('set null');
         });

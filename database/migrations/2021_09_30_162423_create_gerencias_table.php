@@ -21,6 +21,12 @@ class CreateGerenciasTable extends Migration
         });
         DB::table("gerencias")
             ->insert([
+                "gerencia" => "General",
+                "created_at" => "2021-10-11 02:30:41",
+                "updated_at" => "2021-10-11 02:30:41"
+            ]);
+        DB::table("gerencias")
+            ->insert([
                 "gerencia" => "Compras",
                 "created_at" => "2021-10-11 02:30:41",
                 "updated_at" => "2021-10-11 02:30:41"

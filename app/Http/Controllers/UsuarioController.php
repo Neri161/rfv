@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Mail;
 
 class UsuarioController extends Controller
 {
-    
+
     public function bienvenida()
     {
         return view('bienvenida');
@@ -33,10 +33,10 @@ class UsuarioController extends Controller
     {
         return view('recuperar');
     }
-    
+
     public function datosUsuario()
     {
-        
+
         $usuario = Usuario::all();
         return view('user.datosUsuario', ['usuario' => $usuario]);
     }
@@ -95,11 +95,12 @@ class UsuarioController extends Controller
         $max_num = 3;
         $codigo = "";
         for ($x = 0; $x < $max_num; $x++) {
-            $num_aleatorio = rand(1, 100);
+            $num_aleatorio = rand(0, 9);
             $codigo = $codigo . strval($num_aleatorio);
         }
         $usuario->token_recovery = $codigo;
         $usuario->save();
+        Mail::to($usuario->correo)->send(new RecuperarMailable($usuario));
         Mail::to($usuario->correo)->send(new RecuperarMailable($usuario));
         return view('codigo');
     }
@@ -146,7 +147,7 @@ class UsuarioController extends Controller
         return redirect()->route('login');
     }
 
-    
+
     //actulizar datos de usuario
     public function editUsuario(Request $datos)
     {

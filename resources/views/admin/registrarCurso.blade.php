@@ -10,7 +10,7 @@
 
 @section('contenido')
     <!--  Formulario registrar usuario -->
-    <form action="{{route('curso.form')}}" method="post" name="registration">
+    <form action="{{route('curso.form')}}" method="post" name="registration" enctype="multipart/form-data">
         {{csrf_field()}}
         @if(isset($estatus))
             @if($estatus == "success")
@@ -31,7 +31,8 @@
                         <label for="titulo" class="mtop16">Titulo:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="titulo" class="form-control" placeholder="Ingresa nombre de  Gerencia">
+                            <input type="text" name="titulo" class="form-control"
+                                   placeholder="Ingresa nombre de  Gerencia">
                         </div>
                     </div>
                 </div>
@@ -49,7 +50,21 @@
                         <label for="descripcion" class="mtop16">Descripcion:</label>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
-                            <input type="text" name="descripcion" class="form-control" placeholder="Ingresa la Descripcion">
+                            <input type="text" name="descripcion" class="form-control"
+                                   placeholder="Ingresa la Descripcion">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="miniatura" class="mtop16">Miniatura:</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-tasks"></i></span>
+                            <input type="file" name="miniatura" class="form-control" accept="image/*">
+                            @error('miniatura')
+                            <br>
+                            <small class="text-danger">{{$message}}</small>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -64,12 +79,11 @@
                         </select>
                     </div>
                 </div>
-                <div class="row form-control">
+                <br>
+                <div class="row">
                     <div class="col-md-12 text-center ">
                         <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm"> Registrar
                         </button>
-                    </div>
-                    <div class="col-md-3 text-center ">
                     </div>
                 </div>
             </div>

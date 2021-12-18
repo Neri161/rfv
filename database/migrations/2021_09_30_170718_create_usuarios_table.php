@@ -41,7 +41,7 @@ class CreateUsuariosTable extends Migration
                 "paterno" => "Admin",
                 "materno" => "Admin",
                 "usuario" => "Admin",
-                "correo" => "rfv@gmail.com",
+                "correo" => "nerialvareze@gmail.com",
                 "password" => '$2y$05$V4mIk5uScYgZCTbxCGVfIuqo.3D.2y92olSs1yi624mu2XakX4T9i',
                 "rol_id" => 1,
                 "gerencia_id" => 1,
