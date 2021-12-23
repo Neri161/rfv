@@ -51,8 +51,8 @@
                                 </td>
                             @endif
                             <td>
-                                <button id="usuario" idUsuario="{{$usuarios->id}}" class="btn btn-info activar">
-                                    <i class="fas fa-pen"></i></button>
+                                <a href="{{route('editar.usuario')}}/{{$usuarios->id}}" class="btn btn-info editar">
+                                    <i class="fas fa-pen"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -65,8 +65,10 @@
 
 @section('js')
     <!-- datatables JS -->
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
     <script type="text/javascript" src="/dtjs/datatables/datatables.min.js"></script>
     <script type="text/javascript" src="/dtjs/main.js"></script>
+
 
     <script>
         $(document).ready(function () {

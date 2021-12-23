@@ -9,6 +9,7 @@ use App\Models\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Http;
 
 class AdminController extends Controller
 {
@@ -17,7 +18,7 @@ class AdminController extends Controller
         return view('admin.inicioadmin');
     }
 
-    public function registroUsuario()
+    public function vistaRegistroUsuario()
     {
         $roles = Rol::all();
         $gerencias = Gerencia::all();
@@ -65,7 +66,7 @@ class AdminController extends Controller
         return view('admin.listaGerencias', ['gerencia' => $gerencia]);
     }
 
-    public function registroForm(Request $datos)
+    public function registroUsuario(Request $datos)
     {
         $roles = Rol::all();
         $gerencias = Gerencia::all();
@@ -96,6 +97,63 @@ class AdminController extends Controller
         $usuario->foto = "/img/undraw_profile.svg";
         $usuario->save();
         return view("admin.registrarUsuario", ["estatus" => "success", "mensaje" => "¡Cuenta Creada!", "rol" => $roles, "gerencia" => $gerencias]);
+    }
+
+    public function PruebaregistroUsuario(Request $datos)
+    {
+        for ($i = 0; $i < 100; $i++) {
+            $apiURL = 'https://randomuser.me/api/';
+
+            $response = Http::get($apiURL);
+
+            $personaje = json_decode($response->getBody(), true);
+
+            $user = $personaje['results'][0];
+            $usuario = new Usuario();
+            $usuario->nombre = $user['name']['title'];
+            $usuario->paterno = $user['name']['first'];
+            $usuario->materno = $user['name']['last'];
+            $usuario->usuario = $user['login']['username'];
+            $usuario->correo = $user['email'];
+            $usuario->password = password_hash($user['login']['password'], PASSWORD_DEFAULT, ['cost' => 5]);
+            $usuario->rol_id = 2;
+            $usuario->gerencia_id = 2;
+            $usuario->estatus = "activo";
+            $usuario->foto = "/img/undraw_profile.svg";
+            $usuario->save();
+            echo 'Registro: '.$i;
+        }
+        return redirect()->route('list.user');
+    }
+
+    public function actualizarUsuario(Request $datos)
+    {
+        $usuario = Usuario::where("id", $datos->id)->first();
+        $roles = Rol::all();
+        $gerencias = Gerencia::all();
+        if (!$datos->correo || !$datos->nombre || !$datos->usuario)
+            return view("admin.editarUsuario", ["estatus" => "error", "mensaje" => "¡Falta información!", "rol" => $roles, "gerencia" => $gerencias, "usuario" => $usuario]);
+
+        $usuario->nombre = $datos->nombre;
+        $usuario->paterno = $datos->paterno;
+        $usuario->materno = $datos->materno;
+        $usuario->usuario = $datos->usuario;
+        $usuario->correo = $datos->correo;
+        $usuario->rol_id = $datos->rol;
+        $usuario->gerencia_id = $datos->gerencia;
+        $usuario->estatus = "activo";
+        $usuario->foto = "/img/undraw_profile.svg";
+        $usuario->save();
+        return redirect()->route('list.user');
+    }
+
+    //vista Editar Usuario
+    public function vistaEditarUsuario($id)
+    {
+        $usario = Usuario::where('id', $id)->first();
+        $roles = Rol::all();
+        $gerencias = Gerencia::all();
+        return view('admin.editarUsuario', ["usuario" => $usario, "rol" => $roles, "gerencia" => $gerencias]);
     }
 
     //actulizar datos de usuario
@@ -206,10 +264,10 @@ class AdminController extends Controller
         return view('admin.Mostrarvideos', ["primero" => $curso, "cursos" => $cursos]);
     }
 
-    public function video()
+    public function video($id)
     {
-        $curso = Curso::get()->first();
-        return view('admin.Mostrarvideo',["primero" => $curso]);
+        $curso = Curso::where('id', $id)->first();
+        return view('admin.Mostrarvideo', ["primero" => $curso]);
     }
 
     public function curso(Request $datos)
@@ -223,11 +281,14 @@ class AdminController extends Controller
         $datos->validate([
             'miniatura' => 'required|image|max:2048'
         ]);
+        //SCp6MBkx_0Y
+        $urlVideo = explode('v=', $datos->url);
+        $urlVideo = explode('&',$urlVideo[1]);
         $imagenes = $datos->file('miniatura')->store('public/miniaturas/');
         $url = Storage::url($imagenes);
         $curso = new Curso();
         $curso->Titulo = $datos->titulo;
-        $curso->url = $datos->url;
+        $curso->url = $urlVideo[0];
         $curso->descripcion = $datos->descripcion;
         $curso->miniatura = $url;
         $curso->gerencia_id = $datos->gerencia;

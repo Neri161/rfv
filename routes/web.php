@@ -39,9 +39,12 @@ Route::prefix('/usuario')->middleware("VerificarUsuario")->group(function () {
 });
 Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/inicio', [AdminController::class, 'inicio'])->name('admin.inicio');
-    Route::get('/RegistrarUsuario', [AdminController::class, 'registroUsuario'])->name('admin.registrousuario');
+    Route::get('/RegistrarUsuario', [AdminController::class, 'vistaRegistroUsuario'])->name('admin.registrousuario');
     Route::post('/RegistrarCursoForm', [AdminController::class, 'curso'])->name('curso.form');
-    Route::post('/registroForm',[AdminController::class,'registroForm'])->name('registro.form');
+    Route::post('/registroForm',[AdminController::class,'registroUsuario'])->name('registro.form');
+    Route::get('/registroFormPrueba',[AdminController::class,'PruebaregistroUsuario'])->name('registro.form');
+    Route::post('/updateForm',[AdminController::class,'actualizarUsuario'])->name('editar.form');
+    Route::get('/EditarUsuario/{id?}',[AdminController::class,'vistaEditarUsuario'])->name('editar.usuario');
     Route::post('/RegistroFormG',[AdminController::class,'gerenciaForm'])->name('gerencia.form');
     Route::get('/usuario/{texto?}',[AdminController::class,'usuario'])->name('admin.usuario');
     Route::get('/usuario2/{texto?}',[AdminController::class,'usuario2'])->name('admin.usuario2');
@@ -55,5 +58,5 @@ Route::prefix('/admin')->middleware("VerificarAdmin")->group(function () {
     Route::get('/ElminarUsuario/{id?}',[AdminController::class,'eliminarUsuario'])->name('eliminarUsuario');
     Route::get('/ActivarUsuario/{id?}',[AdminController::class,'activarUsuario'])->name('activarUsuario');
     Route::get('/videos',[AdminController::class,'videos'])->name('admin.Mostrarvideos');
-    Route::get('/video',[AdminController::class,'video'])->name('admin.video');
+    Route::get('/video/{id?}',[AdminController::class,'video'])->name('admin.video');
 });

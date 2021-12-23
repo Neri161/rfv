@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Rol;
-use App\Models\Gerencia;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use App\Mail\RecuperarMailable;
 use Illuminate\Support\Facades\Mail;
@@ -83,6 +81,7 @@ class UsuarioController extends Controller
             if($usuario->rol_id == 2)
                 return redirect()->route('usuario.inicio');
         }
+        return redirect()->route($this->bienvenida());
     }
 
     public function recuperarContrasenia(Request $datos)
@@ -92,7 +91,7 @@ class UsuarioController extends Controller
         $usuario = Usuario::where('correo', $datos->correo)->first();
         if (!$usuario)
             return view("recuperar", ["estatus" => "error", "mensaje" => "¡El correo no esta registrado!"]);
-        $max_num = 3;
+        $max_num = 6;
         $codigo = "";
         for ($x = 0; $x < $max_num; $x++) {
             $num_aleatorio = rand(0, 9);
