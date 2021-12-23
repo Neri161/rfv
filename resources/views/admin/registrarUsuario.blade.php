@@ -1,7 +1,7 @@
 @extends('admin.layout.usuario')
 
 @section('titulo')
-    <title>Registrar Gerencias</title>
+    <title>Registrar Usuario</title>
 @endsection
 
 @section('CSS')

@@ -8,7 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{csrf_token()}}">
+    <link href="/img/e-learning-icon.ico" rel="icon">
 
 @yield('titulo')
 
@@ -33,7 +34,7 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.inicio')}}">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fas fa-laptop"></i>
             </div>
             <div class="sidebar-brand-text mx-3">Refividrio</div>
         </a>
@@ -295,7 +296,6 @@
 </div>
 <!-- jQuery, Popper.js, Bootstrap JS -->
 <script src="/dtjs/jquery/jquery-3.3.1.min.js"></script>
-<script src="/dtjs/popper/popper.min.js"></script>
 <script src="/dtjs/bootstrap/js/bootstrap.min.js"></script>
 
 <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
